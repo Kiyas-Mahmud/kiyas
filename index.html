@@ -1,0 +1,1039 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiyas Mahmud — ML Researcher & AI Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Kiyas Mahmud — ML Researcher, AI Engineer, Full-Stack Developer, and Published Author. Building intelligent systems at the intersection of deep learning and real-world engineering."
+    />
+    <meta
+      name="keywords"
+      content="Kiyas Mahmud, ML Researcher, AI Engineer, Portfolio, Machine Learning, Deep Learning"
+    />
+    <meta name="author" content="Kiyas Mahmud" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- AOS CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Custom Cursor -->
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <!-- Noise / Grain Overlay -->
+    <div class="noise-overlay"></div>
+    <div class="grid-overlay"></div>
+
+    <!-- Full-Page Animated Background -->
+    <canvas id="bgNeuralCanvas" class="bg-canvas"></canvas>
+    <canvas id="bgMatrixCanvas" class="bg-canvas bg-matrix"></canvas>
+    <div class="bg-particles" id="bgParticles"></div>
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================ -->
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="nav-logo" id="navLogo"
+          >KM<span class="cursor-blink">▮</span></a
+        >
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" class="nav-link active">About</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#research" class="nav-link">Research</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-right">
+          <a
+            href="https://github.com/Kiyas-Mahmud"
+            target="_blank"
+            rel="noopener"
+            class="nav-github"
+            aria-label="GitHub"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Toggle navigation"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay">
+      <ul class="mobile-nav-links">
+        <li><a href="#hero" class="mobile-nav-link">About</a></li>
+        <li><a href="#experience" class="mobile-nav-link">Experience</a></li>
+        <li><a href="#projects" class="mobile-nav-link">Projects</a></li>
+        <li><a href="#research" class="mobile-nav-link">Research</a></li>
+        <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+        <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- HERO SECTION -->
+    <!-- ============================================ -->
+    <section class="hero" id="hero">
+      <div class="hero-container">
+        <!-- Left Column — Identity -->
+        <div class="hero-identity">
+          <div class="available-badge">
+            <span class="available-dot"></span>
+            Available for Opportunities
+          </div>
+
+          <span class="hero-label">IT'S ME</span>
+          <h1 class="hero-name" id="heroName"></h1>
+          <div class="role-ticker-wrapper">
+            <span class="role-prefix">&gt; </span>
+            <span id="roleTicker"></span>
+          </div>
+
+          <p class="hero-tagline">
+            Building intelligent systems at the intersection of deep learning
+            and real-world engineering.
+          </p>
+
+          <div class="hero-stats">
+            <span><strong>4+</strong> Projects</span>
+            <span class="stat-dot">&middot;</span>
+            <span><strong>2</strong> Publications</span>
+            <span class="stat-dot">&middot;</span>
+            <span><strong>1</strong> Award</span>
+          </div>
+
+          <div class="hero-cta">
+            <a href="#projects" class="btn btn-cyan"><i class="fas fa-eye"></i> View Projects</a>
+            <a
+              href="pdf/KiyasMahmud_Resume.pdf"
+              download="K_Resume"
+              class="btn btn-white"
+              ><i class="fas fa-download"></i> Download CV</a
+            >
+          </div>
+
+          <div class="hero-socials">
+            <a
+              href="https://github.com/Kiyas-Mahmud"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+              target="_blank"
+              rel="noopener"
+              aria-label="Google Scholar"
+              ><i class="fab fa-google-scholar"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column — Profile Image -->
+        <div class="hero-visual">
+          <img
+            src="images/profile/Kiyas.png"
+            alt="Kiyas Mahmud"
+            class="hero-profile-img"
+          />
+          <div class="hero-img-fade-left"></div>
+          <div class="hero-img-fade-bottom"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- SKILLS STRIP -->
+    <!-- ============================================ -->
+    <section class="skills-strip" id="skills">
+      <div class="skills-container">
+        <div class="skills-column" data-aos="fade-up">
+          <h3 class="skills-col-title">
+            <i class="fas fa-code"></i> Programming Languages
+          </h3>
+          <div class="skills-chips">
+            <span class="chip">C++</span>
+            <span class="chip">Python</span>
+            <span class="chip">PHP</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">C#</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Java</span>
+          </div>
+        </div>
+        <div class="skills-column" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="skills-col-title">
+            <i class="fas fa-layer-group"></i> Frameworks & Libraries
+          </h3>
+          <div class="skills-chips">
+            <span class="chip">Laravel</span>
+            <span class="chip">React</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">Vue.js</span>
+            <span class="chip">FastAPI</span>
+            <span class="chip">PyTorch</span>
+            <span class="chip">.NET</span>
+            <span class="chip">Scikit-learn</span>
+            <span class="chip">XGBoost</span>
+          </div>
+        </div>
+        <div class="skills-column" data-aos="fade-up" data-aos-delay="200">
+          <h3 class="skills-col-title">
+            <i class="fas fa-microscope"></i> Research Areas
+          </h3>
+          <div class="skills-chips">
+            <span class="chip">Machine Learning</span>
+            <span class="chip">Deep Learning</span>
+            <span class="chip">Graph Neural Networks</span>
+            <span class="chip">Anomaly Detection</span>
+            <span class="chip">Fraud Detection</span>
+            <span class="chip">NLP</span>
+          </div>
+        </div>
+      </div>
+      <div class="skills-ticker-wrapper">
+        <div class="skills-ticker" id="skillsTicker">
+          <span
+            >C++ · Python · PHP · JavaScript · Laravel · React · Next.js ·
+            Vue.js · Scikit-learn · XGBoost · FastAPI · MySQL · PyTorch ·
+            CatBoost · BiLSTM · .NET · SQL Server · Tailwind CSS · Framer Motion
+            ·&nbsp;</span
+          >
+          <span
+            >C++ · Python · PHP · JavaScript · Laravel · React · Next.js ·
+            Vue.js · Scikit-learn · XGBoost · FastAPI · MySQL · PyTorch ·
+            CatBoost · BiLSTM · .NET · SQL Server · Tailwind CSS · Framer Motion
+            ·&nbsp;</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- TIMELINE / EXPERIENCE -->
+    <!-- ============================================ -->
+    <section class="timeline-section" id="experience">
+      <h2 class="section-heading glitch-heading" data-text="> EXPERIENCE_">
+        &gt; EXPERIENCE_
+      </h2>
+
+      <div class="timeline-wrapper">
+        <svg class="timeline-svg" id="timelineSvg" preserveAspectRatio="none">
+          <defs>
+            <filter id="glowFilter">
+              <feGaussianBlur stdDeviation="3" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <path
+            id="timelinePath"
+            class="timeline-path"
+            fill="none"
+            stroke="#00D9FF"
+            stroke-width="2"
+            filter="url(#glowFilter)"
+          />
+          <circle
+            id="timelineDot"
+            r="6"
+            fill="#00D9FF"
+            filter="url(#glowFilter)"
+            cx="0"
+            cy="0"
+          />
+        </svg>
+
+        <div class="timeline-cards">
+          <!-- Card 1: SSC -->
+          <div class="timeline-card right" data-index="0">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card cyan-left">
+              <span class="card-year">2018</span>
+              <h3><i class="fas fa-graduation-cap"></i> SSC</h3>
+              <p>Singair Pilot High School</p>
+            </div>
+          </div>
+
+          <!-- Card 2: HSC -->
+          <div class="timeline-card left" data-index="1">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card cyan-left">
+              <span class="card-year">2021</span>
+              <h3><i class="fas fa-graduation-cap"></i> HSC</h3>
+              <p>Ideal College, Dhanmondi</p>
+            </div>
+          </div>
+
+          <!-- Card 3: BSc -->
+          <div class="timeline-card right" data-index="2">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card cyan-left">
+              <span class="card-year">2022 – 2026</span>
+              <h3><i class="fas fa-graduation-cap"></i> BSc in Computer Science</h3>
+              <p>American International University-Bangladesh (AIUB)</p>
+            </div>
+          </div>
+
+          <!-- Card 4: Research Assistant -->
+          <div class="timeline-card left" data-index="3">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card green-left">
+              <span class="card-year">Jan 2025 – Present</span>
+              <h3><i class="fas fa-briefcase"></i> Research Assistant</h3>
+              <p>Tech Wing's Lab</p>
+            </div>
+          </div>
+
+          <!-- Card 5: Publication -->
+          <div class="timeline-card right" data-index="4">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card purple-left">
+              <span class="card-year">2025</span>
+              <h3><i class="fas fa-file-lines"></i> Publication</h3>
+              <p>Atlantis Press / Springer Nature</p>
+            </div>
+          </div>
+
+          <!-- Card 6: ICT Award -->
+          <div class="timeline-card left" data-index="5">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card gold-left">
+              <span class="card-year">2025</span>
+              <h3><i class="fas fa-trophy"></i> Bangladesh ICT &amp; Innovation Awards</h3>
+              <p>Winner — National Recognition</p>
+            </div>
+          </div>
+
+          <!-- Card 7: ICASF Dubai -->
+          <div class="timeline-card right" data-index="6">
+            <div class="card-connector"></div>
+            <div class="card-content glass-card gold-left">
+              <span class="card-year">2025</span>
+              <h3><i class="fas fa-globe"></i> ICASF 2025 — Dubai</h3>
+              <p>Accepted Presentation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PROJECTS -->
+    <!-- ============================================ -->
+    <section class="projects-section" id="projects">
+      <h2 class="section-heading glitch-heading" data-text="> PROJECTS_">
+        &gt; PROJECTS_<span class="cursor-blink">▮</span>
+      </h2>
+
+      <div class="projects-grid">
+        <!-- Hybrid Fraud Shield -->
+        <div class="project-card" data-aos="fade-up">
+          <div class="project-body">
+            <div class="project-badges">
+              <span class="badge badge-gold"><i class="fas fa-trophy"></i> ICT Award Winner 2025</span>
+              <span class="badge badge-purple"><i class="fas fa-globe"></i> ICASF 2025 Dubai</span>
+            </div>
+            <h3><i class="fas fa-shield-halved project-icon"></i> Hybrid Fraud Shield</h3>
+            <p>
+              Real-time fraud detection system combining behavioral biometrics
+              with transactional pattern analysis using ensemble ML models and
+              deep learning.
+            </p>
+            <div class="tech-chips green-chips">
+              <span>FastAPI</span>
+              <span>Next.js</span>
+              <span>MySQL</span>
+              <span>XGBoost</span>
+              <span>CatBoost</span>
+              <span>BiLSTM</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ResearchLink -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-body">
+            <h3><i class="fas fa-link project-icon"></i> ResearchLink</h3>
+            <p>
+              Desktop application for managing academic research papers,
+              collaboration tracking, and citation management built with .NET
+              WinForms.
+            </p>
+            <div class="tech-chips green-chips">
+              <span>C#</span>
+              <span>.NET WinForms</span>
+              <span>SQL Server</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Things You Desire -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-body">
+            <h3><i class="fas fa-cart-shopping project-icon"></i> Things You Desire</h3>
+            <p>
+              Full-stack e-commerce platform with modern UI, product management,
+              cart system and responsive design using Laravel and Next.js.
+            </p>
+            <div class="tech-chips green-chips">
+              <span>Laravel</span>
+              <span>Next.js</span>
+              <span>MySQL</span>
+              <span>Tailwind CSS</span>
+              <span>ShadCN UI</span>
+              <span>Framer Motion</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Lost & Found -->
+        <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-body">
+            <h3><i class="fas fa-magnifying-glass project-icon"></i> Lost &amp; Found</h3>
+            <p>
+              University platform where students can report lost items, browse
+              found items, and submit ownership claims. Features a role-based
+              admin dashboard for managing posts, verifying claims, and
+              moderating listings.
+            </p>
+            <div class="tech-chips green-chips">
+              <span>Laravel</span>
+              <span>Next.js</span>
+              <span>MySQL</span>
+              <span>Tailwind CSS</span>
+              <span>REST API</span>
+            </div>
+            <div class="project-actions">
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Ghost Card -->
+        <div
+          class="project-card ghost-card"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <a
+            href="https://github.com/Kiyas-Mahmud"
+            target="_blank"
+            rel="noopener"
+            class="ghost-card-inner"
+          >
+            <i class="fab fa-github"></i>
+            <span>View All Projects</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- PUBLICATIONS / RESEARCH -->
+    <!-- ============================================ -->
+    <section class="publications-section" id="research">
+      <div class="publications-scanlines"></div>
+      <h2 class="section-heading terminal-prompt">
+        root@kiyas:~/research$<span class="cursor-blink">▮</span>
+      </h2>
+
+      <div class="publications-container">
+        <!-- Publication 1 -->
+        <div class="publication-entry" id="pub1">
+          <div class="pub-line">
+            <span class="pub-year">[2025]</span>
+            <span class="pub-arrow">&gt;</span>
+            <span class="pub-title type-target"
+              >Comparative Analysis of Heap Algorithms for Anomaly Localization
+              in Dynamic GNNs</span
+            >
+          </div>
+          <div class="pub-meta">
+            <span class="pub-detail"
+              >→ Published: Atlantis Press – Springer Nature Conference</span
+            >
+          </div>
+          <div class="pub-expand">
+            <p>
+              Investigates the efficiency of heap-based algorithms for
+              localizing anomalous substructures in dynamic graph neural network
+              representations, comparing min-heap, Fibonacci heap, and binomial
+              heap approaches for real-time anomaly detection.
+            </p>
+            <div class="pub-links">
+              <a
+                href="https://www.atlantis-press.com/proceedings/icerie-25/126018291"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >View Paper ↗</a
+              >
+              <a
+                href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >Google Scholar ↗</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Publication 2 -->
+        <div class="publication-entry" id="pub2">
+          <div class="pub-line">
+            <span class="pub-year">[2025]</span>
+            <span class="pub-arrow">&gt;</span>
+            <span class="pub-title type-target"
+              >Real-Time Fusion of Behavioral and Transactional Data for Fraud
+              Detection</span
+            >
+          </div>
+          <div class="pub-meta">
+            <span class="pub-detail">→ Accepted: ICASF 2025, Dubai</span>
+          </div>
+          <div class="pub-expand">
+            <p>
+              Proposes a multimodal fusion framework combining keystroke
+              dynamics, mouse movement patterns, and transaction metadata for
+              real-time online payment fraud detection with ensemble learning.
+            </p>
+            <div class="pub-links">
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                class="btn btn-cyan btn-sm"
+                >GitHub ↗</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="terminal-cursor-end"><span class="cursor-blink">▮</span></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CERTIFICATES -->
+    <!-- ============================================ -->
+    <section class="certificates-section" id="certificates">
+      <h2 class="section-heading glitch-heading" data-text="> CERTIFICATES_">
+        &gt; CERTIFICATES_
+      </h2>
+
+      <div class="carousel-wrapper">
+        <button
+          class="carousel-btn carousel-prev"
+          id="carouselPrev"
+          aria-label="Previous certificate"
+        >
+          <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="carousel-viewport" id="carouselViewport">
+          <div class="carousel-track" id="carouselTrack">
+            <!-- Certificate 1 -->
+            <div class="cert-card">
+              <div class="cert-gold-bar"></div>
+              <div class="cert-image">
+                <img
+                  src="../images/Certificate/APICTA.png"
+                  alt="APICTA Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h3>APICTA Awards</h3>
+                <p>Asia Pacific ICT Alliance</p>
+                <span class="cert-year-badge">2025</span>
+              </div>
+            </div>
+
+            <!-- Certificate 2 -->
+            <div class="cert-card">
+              <div class="cert-gold-bar"></div>
+              <div class="cert-image">
+                <img
+                  src="../images/Certificate/BIIN.png"
+                  alt="BIIN Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h3>BIIN Recognition</h3>
+                <p>Bangladesh Innovation & Invention Network</p>
+                <span class="cert-year-badge">2025</span>
+              </div>
+            </div>
+
+            <!-- Certificate 3 -->
+            <div class="cert-card">
+              <div class="cert-gold-bar"></div>
+              <div class="cert-image">
+                <img
+                  src="../images/Certificate/Conference.png"
+                  alt="Conference Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h3>Conference Publication</h3>
+                <p>Atlantis Press — Springer Nature</p>
+                <span class="cert-year-badge">2025</span>
+              </div>
+            </div>
+
+            <!-- Certificate 4 -->
+            <div class="cert-card">
+              <div class="cert-gold-bar"></div>
+              <div class="cert-image">
+                <img
+                  src="../images/Certificate/SUST.png"
+                  alt="SUST Certificate"
+                  loading="lazy"
+                />
+              </div>
+              <div class="cert-info">
+                <h3>SUST Recognition</h3>
+                <p>Shahjalal University of Science & Technology</p>
+                <span class="cert-year-badge">2025</span>
+              </div>
+            </div>
+
+            <!-- Placeholder Card -->
+            <div class="cert-card cert-placeholder">
+              <div class="cert-gold-bar dashed"></div>
+              <div class="cert-placeholder-inner">
+                <i class="fas fa-certificate"></i>
+                <p>More Certificates Coming</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-btn carousel-next"
+          id="carouselNext"
+          aria-label="Next certificate"
+        >
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- GALLERY -->
+    <!-- ============================================ -->
+    <section class="gallery-section" id="gallery">
+      <h2 class="section-heading glitch-heading" data-text="GALLERY_">
+        GALLERY_
+      </h2>
+      <p class="gallery-subtitle">Moments, Milestones & Memories</p>
+
+      <div class="masonry-grid" id="masonryGrid">
+        <div class="masonry-item" data-caption="Innovation Network Event">
+          <img
+            src="../images/Gallary/innovationnetwork-(2).webp"
+            alt="Innovation Network"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Innovation Network Event</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Innovation Network">
+          <img
+            src="../images/Gallary/innovationnetwork-(3).webp"
+            alt="Innovation Network"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Innovation Network</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Innovation Summit">
+          <img
+            src="../images/Gallary/innovationnetwork-(4).webp"
+            alt="Innovation Summit"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Innovation Summit</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Innovation Network Event">
+          <img
+            src="../images/Gallary/innovationnetwork-(5).jpg"
+            alt="Innovation Network Event"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Innovation Network Event</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Milestone Moment">
+          <img
+            src="../images/Gallary/20260304_093000689_iOS.jpg"
+            alt="Milestone Moment"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Milestone Moment</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Captured Moment">
+          <img
+            src="../images/Gallary/20260307_180227065_iOS 1.jpg"
+            alt="Captured Moment"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Captured Moment</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Life & Memories">
+          <img
+            src="../images/Gallary/20260307_180230917_iOS.jpg"
+            alt="Life & Memories"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Life & Memories</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Milestones">
+          <img
+            src="../images/Gallary/20260307_180242115_iOS.jpg"
+            alt="Milestones"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Milestones</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Personal">
+          <img
+            src="../images/Gallary/20260307_180244813_iOS.jpg"
+            alt="Personal"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Personal</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Memories">
+          <img
+            src="../images/Gallary/20260307_180252363_iOS.jpg"
+            alt="Memories"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Memories</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Journey">
+          <img
+            src="../images/Gallary/20260307_180301070_iOS.jpg"
+            alt="Journey"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Journey</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Achievement">
+          <img
+            src="../images/Gallary/20260307_181648766_iOS.jpg"
+            alt="Achievement"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Achievement</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Moments">
+          <img
+            src="../images/Gallary/20260307_181659937_iOS.jpg"
+            alt="Moments"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Moments</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Snapshot">
+          <img
+            src="../images/Gallary/20260307_181706886_iOS.jpg"
+            alt="Snapshot"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Snapshot</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Capture">
+          <img
+            src="../images/Gallary/20260307_181729993_iOS.jpg"
+            alt="Capture"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Capture</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+        <div class="masonry-item" data-caption="Memory">
+          <img
+            src="../images/Gallary/20260307_181733146_iOS.jpg"
+            alt="Memory"
+            loading="lazy"
+          />
+          <div class="masonry-overlay">
+            <span class="bracket-tl">⌐</span>
+            <span class="masonry-caption">Memory</span>
+            <span class="bracket-br">¬</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- CONTACT -->
+    <!-- ============================================ -->
+    <section class="contact-section" id="contact">
+      <svg
+        class="contact-wave-bg"
+        id="contactWave"
+        preserveAspectRatio="none"
+      ></svg>
+      <h2 class="section-heading glitch-heading" data-text="TRANSMIT_MESSAGE">
+        TRANSMIT_MESSAGE
+      </h2>
+
+      <div class="contact-container">
+        <!-- Left — Contact Form -->
+        <div class="contact-form-wrapper" data-aos="fade-right">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label for="contactName">NAME_</label>
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                required
+                autocomplete="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">EMAIL_</label>
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="form-group">
+              <label for="contactMessage">MESSAGE_</label>
+              <textarea
+                id="contactMessage"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <span class="btn-text">[ SEND SIGNAL ]</span>
+              <div class="radar-rings" id="radarRings"></div>
+            </button>
+          </form>
+        </div>
+
+        <!-- Right — Contact Info -->
+        <div class="contact-info-wrapper" data-aos="fade-left">
+          <div class="contact-info-card">
+            <div class="info-icon-pulse"><i class="fas fa-envelope"></i></div>
+            <div class="info-text">
+              <span class="info-label">Email</span>
+              <a href="mailto:kiyasmahmud@gmail.com">kiyasmahmud@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="info-icon-pulse">
+              <i class="fas fa-location-dot"></i>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Location</span>
+              <span>Mirpur-1, Dhaka, Bangladesh</span>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="info-icon-pulse"><i class="fab fa-github"></i></div>
+            <div class="info-text">
+              <span class="info-label">GitHub</span>
+              <a href="https://github.com/Kiyas-Mahmud" target="_blank"
+                >github.com/Kiyas-Mahmud</a
+              >
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="info-icon-pulse">
+              <i class="fab fa-google-scholar"></i>
+            </div>
+            <div class="info-text">
+              <span class="info-label">Google Scholar</span>
+              <a
+                href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                target="_blank"
+                >Scholar Profile</a
+              >
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="info-icon-pulse">
+              <i class="fab fa-linkedin-in"></i>
+            </div>
+            <div class="info-text">
+              <span class="info-label">LinkedIn</span>
+              <a href="#" target="_blank">LinkedIn Profile</a>
+            </div>
+          </div>
+          <div class="contact-info-card">
+            <div class="info-icon-pulse"><i class="fas fa-file-lines"></i></div>
+            <div class="info-text">
+              <span class="info-label">Research Paper</span>
+              <a
+                href="https://www.atlantis-press.com/proceedings/icerie-25/126018291"
+                target="_blank"
+                >Atlantis Press Publication</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer" id="footer">
+      <div class="footer-container">
+        <span class="footer-copy">KIYAS MAHMUD © 2025</span>
+        <div class="footer-socials">
+          <a
+            href="https://github.com/Kiyas-Mahmud"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="#" target="_blank" aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+            target="_blank"
+            aria-label="Google Scholar"
+            ><i class="fab fa-google-scholar"></i
+          ></a>
+        </div>
+        <span class="footer-tagline"
+          >Built with passion, caffeine, and <i class="fab fa-python"></i> Python</span
+        >
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
