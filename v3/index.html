@@ -25,7 +25,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="preload" as="image" href="../images/space/moon.jpg" />
+    <link rel="preload" as="image" href="../images/space/moon-map.jpg" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
@@ -45,23 +45,16 @@
     <canvas id="starfield" aria-hidden="true"></canvas>
     <div class="celestial" aria-hidden="true">
       <div class="body body-moon" id="bodyMoon">
-        <img
-          src="../images/space/moon.jpg"
-          alt=""
-          width="1920"
-          height="1920"
-          decoding="async"
-        />
+        <div class="sphere sphere-moon">
+          <div class="sphere-tex"></div>
+          <div class="sphere-shade"></div>
+        </div>
       </div>
       <div class="body body-neptune" id="bodyNeptune">
-        <img
-          src="../images/space/neptune.jpg"
-          alt=""
-          width="1920"
-          height="1917"
-          loading="lazy"
-          decoding="async"
-        />
+        <div class="sphere sphere-neptune">
+          <div class="sphere-tex"></div>
+          <div class="sphere-shade"></div>
+        </div>
       </div>
       <div class="body body-blackhole" id="bodyBlackhole">
         <div class="accretion accretion-a"></div>
@@ -801,8 +794,8 @@
 
     <footer class="footer">
       <p class="mono">
-        © 2026 Kiyas Mahmud · Imagery: NASA/GSFC/JPL-Caltech · Voyager 2, LRO,
-        and the Schnittman black hole visualization
+        © 2026 Kiyas Mahmud · Moon map: NASA CGI Moon Kit · Black hole:
+        NASA/GSFC Schnittman visualization
       </p>
       <p class="mono footer-versions">
         Other flights: <a href="../">v1</a> · <a href="../v2/">v2</a>

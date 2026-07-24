@@ -98,13 +98,14 @@
 
   function drawStars(t, scroll, warp, px, py) {
     ctx.clearRect(0, 0, W, H);
-    const drift = t * 0.006 * warp;
+    const drift = t * 0.03 * warp;
+    const fall = t * 0.009 * warp;
     for (const s of stars) {
       const x =
         (((s.x + drift * s.z + px * 9 * s.z) % W) + W) % W;
       const y =
-        (((s.y - scroll * 0.06 * s.z + py * 6 * s.z) % H) + H) % H;
-      const tw = s.base * (0.62 + 0.38 * Math.sin(t * 0.001 * s.freq + s.phase));
+        (((s.y - fall * s.z - scroll * 0.06 * s.z + py * 6 * s.z) % H) + H) % H;
+      const tw = s.base * (0.55 + 0.45 * Math.sin(t * 0.0016 * s.freq + s.phase));
       ctx.beginPath();
       ctx.arc(x, y, s.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${STAR_COLORS[s.hue]}, ${tw})`;
@@ -120,7 +121,7 @@
         vy: 2.5 + Math.random() * 2,
         life: 1,
       };
-      nextShootAt = t + 6000 + Math.random() * 9000;
+      nextShootAt = t + 3500 + Math.random() * 5500;
     }
     if (shooting) {
       const sh = shooting;
@@ -198,8 +199,8 @@
     if (!reducedMotion) {
       for (const b of bodies) {
         const drift = clamp((scrollCurrent - b.anchor) * b.depth, -420, 420);
-        const swayX = Math.sin(t * 0.00035 + b.sway) * 9 + px * 14;
-        const swayY = Math.cos(t * 0.00028 + b.sway) * 7 + py * 10;
+        const swayX = Math.sin(t * 0.00042 + b.sway) * 18 + px * 24;
+        const swayY = Math.cos(t * 0.00034 + b.sway) * 14 + py * 18;
         b.el.style.transform = `translate3d(${swayX}px, ${-drift + swayY}px, 0)`;
       }
     }
