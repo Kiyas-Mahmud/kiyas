@@ -18,7 +18,10 @@
   const preloader = $("#preloader");
   const preloaderCount = $("#preloaderCount");
 
+  let loadFinished = false;
   const finishLoad = () => {
+    if (loadFinished) return;
+    loadFinished = true;
     if (preloader) preloader.classList.add("is-done");
     document.body.classList.add("is-loaded");
     document.body.classList.remove("is-locked");
@@ -28,10 +31,17 @@
     finishLoad();
   } else {
     document.body.classList.add("is-locked");
+
+    // Hard failsafes: never trap the visitor on the preloader,
+    // even if rAF is throttled or assets hang.
+    addEventListener("load", () => setTimeout(finishLoad, 1800));
+    setTimeout(finishLoad, 3500);
+
     const start = performance.now();
     const DURATION = 1300;
 
     const tick = (now) => {
+      if (loadFinished) return;
       const t = Math.min((now - start) / DURATION, 1);
       const eased = 1 - Math.pow(1 - t, 3);
       preloaderCount.textContent = String(Math.round(eased * 100)).padStart(2, "0");
