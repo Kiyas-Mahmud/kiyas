@@ -148,6 +148,16 @@ ol {
   overflow: hidden;
 }
 
+/* Meteor + impact-dust layer: above the planets, below the content */
+#fxCanvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
 .body {
   position: absolute;
   opacity: 0;

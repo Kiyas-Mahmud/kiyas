@@ -53,6 +53,8 @@
      ========================================================== */
   const canvas = document.getElementById("starfield");
   const ctx = canvas.getContext("2d");
+  const fxCanvas = document.getElementById("fxCanvas");
+  const fx = fxCanvas && ctx ? fxCanvas.getContext("2d") : null;
   let W = 0;
   let H = 0;
   let dpr = 1;
@@ -87,6 +89,11 @@
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    if (fx) {
+      fxCanvas.width = Math.round(W * dpr);
+      fxCanvas.height = Math.round(H * dpr);
+      fx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
     buildStars();
   }
 
@@ -136,6 +143,149 @@
       sh.life -= 0.02;
       if (sh.life <= 0 || sh.x > W + 80 || sh.y > H + 80) shooting = null;
     }
+  }
+
+  /* ==========================================================
+     Meteor strikes: falling stars dive into the moon, kick up
+     a dust bloom, and leave a fading ember at the impact site.
+     Impact points are stored relative to the moon's center so
+     the scars ride along with its drift and sway.
+     ========================================================== */
+  let meteors = [];
+  let impacts = [];
+  let nextMeteorAt = 2600;
+
+  function moonGeom() {
+    const sphere = document.querySelector("#bodyMoon .sphere");
+    const r = sphere.getBoundingClientRect();
+    return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, r: r.width / 2 };
+  }
+
+  function spawnMeteor(g) {
+    // aim at a random point on the visible (left-facing) hemisphere
+    const ang = (100 + Math.random() * 150) * (Math.PI / 180);
+    const dist = g.r * (0.12 + Math.random() * 0.5);
+    const offset = { x: Math.cos(ang) * dist, y: Math.sin(ang) * dist };
+    const fromLeft = Math.random() < 0.7;
+    meteors.push({
+      x: fromLeft ? -100 - Math.random() * 140 : Math.random() * W * 0.5,
+      y: fromLeft ? Math.random() * H * 0.35 : -100,
+      offset,
+      speed: 11 + Math.random() * 6,
+      trail: [],
+    });
+  }
+
+  function updateFx(t) {
+    if (!fx) return;
+    fx.clearRect(0, 0, W, H);
+    const sceneMoon = document.body.dataset.scene === "moon";
+    if (sceneMoon && t > nextMeteorAt && meteors.length < 3) {
+      const g0 = moonGeom();
+      if (g0.r > 40) spawnMeteor(g0);
+      nextMeteorAt = t + 2600 + Math.random() * 4000;
+    }
+    if (meteors.length === 0 && impacts.length === 0) return;
+    const g = moonGeom();
+
+    meteors = meteors.filter((mt) => {
+      const tx = g.cx + mt.offset.x;
+      const ty = g.cy + mt.offset.y;
+      const dx = tx - mt.x;
+      const dy = ty - mt.y;
+      const d = Math.hypot(dx, dy);
+      if (d < mt.speed) {
+        // touchdown: dust fans back out along the approach direction
+        const back = Math.atan2(dy, dx) + Math.PI;
+        impacts.push({
+          offset: mt.offset,
+          t0: t,
+          parts: Array.from({ length: 24 }, () => ({
+            a: back + (Math.random() - 0.5) * 2.7,
+            sp: 0.4 + Math.random() * 2.4,
+            life: 1050 + Math.random() * 850,
+            size: 1.2 + Math.random() * 3,
+            warm: Math.random() < 0.35,
+          })),
+        });
+        if (impacts.length > 6) impacts.shift();
+        return false;
+      }
+      mt.x += (dx / d) * mt.speed;
+      mt.y += (dy / d) * mt.speed;
+      mt.trail.unshift({ x: mt.x, y: mt.y });
+      if (mt.trail.length > 14) mt.trail.pop();
+      for (let i = 0; i < mt.trail.length - 1; i++) {
+        const p = mt.trail[i];
+        const a = 0.95 * (1 - i / mt.trail.length);
+        fx.strokeStyle = `rgba(255, 226, 178, ${a})`;
+        fx.lineWidth = Math.max(0.8, 3.4 * (1 - i / mt.trail.length));
+        fx.beginPath();
+        fx.moveTo(p.x, p.y);
+        fx.lineTo(mt.trail[i + 1].x, mt.trail[i + 1].y);
+        fx.stroke();
+      }
+      const hg = fx.createRadialGradient(mt.x, mt.y, 0, mt.x, mt.y, 10);
+      hg.addColorStop(0, "rgba(255, 246, 228, 0.95)");
+      hg.addColorStop(0.35, "rgba(255, 226, 178, 0.5)");
+      hg.addColorStop(1, "rgba(255, 226, 178, 0)");
+      fx.fillStyle = hg;
+      fx.beginPath();
+      fx.arc(mt.x, mt.y, 10, 0, Math.PI * 2);
+      fx.fill();
+      return true;
+    });
+
+    impacts = impacts.filter((im) => {
+      const age = t - im.t0;
+      if (age > 4600) return false;
+      const ix = g.cx + im.offset.x;
+      const iy = g.cy + im.offset.y;
+      if (age < 320) {
+        const a = 0.9 * (1 - age / 320);
+        const rad = (8 + age * 0.12) * 3;
+        const grad = fx.createRadialGradient(ix, iy, 0, ix, iy, rad);
+        grad.addColorStop(0, `rgba(255, 240, 214, ${a})`);
+        grad.addColorStop(1, "rgba(255, 240, 214, 0)");
+        fx.fillStyle = grad;
+        fx.beginPath();
+        fx.arc(ix, iy, rad, 0, Math.PI * 2);
+        fx.fill();
+      }
+      if (age < 900) {
+        const p = age / 900;
+        fx.strokeStyle = `rgba(240, 214, 170, ${0.5 * (1 - p)})`;
+        fx.lineWidth = 1.4;
+        fx.beginPath();
+        fx.arc(ix, iy, 4 + p * g.r * 0.3, 0, Math.PI * 2);
+        fx.stroke();
+      }
+      for (const pt of im.parts) {
+        const p = age / pt.life;
+        if (p >= 1) continue;
+        const reach = pt.sp * age * 0.055;
+        const px2 = ix + Math.cos(pt.a) * reach;
+        const py2 = iy + Math.sin(pt.a) * reach - age * 0.008;
+        const a = 0.8 * (1 - p);
+        fx.fillStyle = pt.warm
+          ? `rgba(244, 204, 152, ${a})`
+          : `rgba(222, 218, 208, ${a})`;
+        fx.beginPath();
+        fx.arc(px2, py2, pt.size * (1 + p * 1.6), 0, Math.PI * 2);
+        fx.fill();
+      }
+      const ea = age < 600 ? 0.7 : 0.7 * (1 - (age - 600) / 4000);
+      if (ea > 0) {
+        const eg = fx.createRadialGradient(ix, iy, 0, ix, iy, 14);
+        eg.addColorStop(0, `rgba(255, 196, 128, ${ea})`);
+        eg.addColorStop(1, "rgba(255, 196, 128, 0)");
+        fx.fillStyle = eg;
+        fx.beginPath();
+        fx.arc(ix, iy, 14, 0, Math.PI * 2);
+        fx.fill();
+      }
+      return true;
+    });
   }
 
   /* ==========================================================
@@ -194,7 +344,10 @@
     const inBlackhole = document.body.dataset.scene === "blackhole";
     const warp = (1 + progress * progress * 0.9) * (inBlackhole ? 1.4 : 1);
 
-    if (ctx && !reducedMotion) drawStars(t, scrollCurrent, warp, px, py);
+    if (ctx && !reducedMotion) {
+      drawStars(t, scrollCurrent, warp, px, py);
+      updateFx(t);
+    }
 
     if (!reducedMotion) {
       for (const b of bodies) {
