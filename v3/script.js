@@ -200,12 +200,11 @@
         impacts.push({
           offset: mt.offset,
           t0: t,
-          parts: Array.from({ length: 24 }, () => ({
-            a: back + (Math.random() - 0.5) * 2.7,
-            sp: 0.4 + Math.random() * 2.4,
-            life: 1050 + Math.random() * 850,
-            size: 1.2 + Math.random() * 3,
-            warm: Math.random() < 0.35,
+          parts: Array.from({ length: 22 }, () => ({
+            a: back + (Math.random() - 0.5) * 2.6,
+            sp: 0.3 + Math.random() * 1.7,
+            life: 1100 + Math.random() * 900,
+            size: 1 + Math.random() * 2.6,
           })),
         });
         if (impacts.length > 6) impacts.shift();
@@ -254,34 +253,51 @@
       }
       if (age < 900) {
         const p = age / 900;
-        fx.strokeStyle = `rgba(240, 214, 170, ${0.5 * (1 - p)})`;
-        fx.lineWidth = 1.4;
+        fx.strokeStyle = `rgba(224, 221, 213, ${0.35 * (1 - p)})`;
+        fx.lineWidth = 1.2;
         fx.beginPath();
         fx.arc(ix, iy, 4 + p * g.r * 0.3, 0, Math.PI * 2);
         fx.stroke();
       }
+      // central plume: one soft cloud swelling and lifting off the surface
+      const pp = age / 1700;
+      if (pp < 1) {
+        const pr = 9 + pp * 36;
+        const pa = 0.28 * (1 - pp);
+        const pcy = iy - pp * 16;
+        const pg = fx.createRadialGradient(ix, pcy, 0, ix, pcy, pr);
+        pg.addColorStop(0, `rgba(211, 207, 198, ${pa})`);
+        pg.addColorStop(1, "rgba(211, 207, 198, 0)");
+        fx.fillStyle = pg;
+        fx.beginPath();
+        fx.arc(ix, pcy, pr, 0, Math.PI * 2);
+        fx.fill();
+      }
+      // fine dust: soft-edged grey puffs that spread, swell, and thin out
       for (const pt of im.parts) {
         const p = age / pt.life;
         if (p >= 1) continue;
-        const reach = pt.sp * age * 0.055;
+        const reach = pt.sp * age * 0.045;
         const px2 = ix + Math.cos(pt.a) * reach;
-        const py2 = iy + Math.sin(pt.a) * reach - age * 0.008;
-        const a = 0.8 * (1 - p);
-        fx.fillStyle = pt.warm
-          ? `rgba(244, 204, 152, ${a})`
-          : `rgba(222, 218, 208, ${a})`;
+        const py2 = iy + Math.sin(pt.a) * reach - age * 0.006;
+        const a = 0.2 * (1 - p);
+        const rad = pt.size * (2.5 + p * 6);
+        const dg = fx.createRadialGradient(px2, py2, 0, px2, py2, rad);
+        dg.addColorStop(0, `rgba(214, 210, 201, ${a})`);
+        dg.addColorStop(1, "rgba(214, 210, 201, 0)");
+        fx.fillStyle = dg;
         fx.beginPath();
-        fx.arc(px2, py2, pt.size * (1 + p * 1.6), 0, Math.PI * 2);
+        fx.arc(px2, py2, rad, 0, Math.PI * 2);
         fx.fill();
       }
-      const ea = age < 600 ? 0.7 : 0.7 * (1 - (age - 600) / 4000);
+      const ea = age < 500 ? 0.45 : 0.45 * (1 - (age - 500) / 3600);
       if (ea > 0) {
-        const eg = fx.createRadialGradient(ix, iy, 0, ix, iy, 14);
-        eg.addColorStop(0, `rgba(255, 196, 128, ${ea})`);
-        eg.addColorStop(1, "rgba(255, 196, 128, 0)");
+        const eg = fx.createRadialGradient(ix, iy, 0, ix, iy, 7);
+        eg.addColorStop(0, `rgba(255, 200, 138, ${ea})`);
+        eg.addColorStop(1, "rgba(255, 200, 138, 0)");
         fx.fillStyle = eg;
         fx.beginPath();
-        fx.arc(ix, iy, 14, 0, Math.PI * 2);
+        fx.arc(ix, iy, 7, 0, Math.PI * 2);
         fx.fill();
       }
       return true;
