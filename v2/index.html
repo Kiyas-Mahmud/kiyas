@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiyas Mahmud · ML Researcher & AI Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Kiyas Mahmud, ML Researcher, AI Engineer, Full-Stack Developer, and Published Author. Building intelligent systems at the intersection of deep learning and real-world engineering."
+    />
+    <meta
+      name="keywords"
+      content="Kiyas Mahmud, ML Researcher, AI Engineer, Portfolio, Machine Learning, Deep Learning"
+    />
+    <meta name="author" content="Kiyas Mahmud" />
+
+    <!-- Google Fonts: Sora (primary) + Source Serif 4 italic (warm accents) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700;800&family=Source+Serif+4:ital,opsz,wght@1,8..60,400;1,8..60,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Preloader -->
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader-inner">
+        <span class="preloader-kicker">Portfolio</span>
+        <span class="preloader-name">Kiyas Mahmud</span>
+        <span class="preloader-count" id="preloaderCount">00</span>
+      </div>
+    </div>
+
+    <!-- Custom cursor -->
+    <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+    <div class="cursor-ring" id="cursorRing" aria-hidden="true">
+      <span class="cursor-label" id="cursorLabel"></span>
+    </div>
+
+    <!-- Scroll progress hairline -->
+    <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+    <!-- Aurora light field -->
+    <div class="aurora" aria-hidden="true">
+      <div class="blob blob-a" data-depth="0.05"></div>
+      <div class="blob blob-b" data-depth="0.09"></div>
+      <div class="blob blob-c" data-depth="0.13"></div>
+      <div class="grain"></div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- NAVIGATION -->
+    <!-- ============================================ -->
+    <header class="nav" id="nav">
+      <a href="#hero" class="nav-logo" aria-label="Back to top">
+        kiyas<span class="nav-logo-dot">·</span>mahmud
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#research" class="nav-link">Research</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <div class="nav-right">
+        <a
+          href="../pdf/KiyasMahmud_Resume.pdf"
+          download="KiyasMahmud_Resume"
+          class="nav-cv magnetic"
+        >
+          <i class="fas fa-arrow-down"></i> CV
+        </a>
+        <button
+          class="nav-burger"
+          id="navBurger"
+          aria-label="Open menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+      <nav class="mobile-menu-links" aria-label="Mobile">
+        <a href="#about" class="mobile-link"><em>01</em>About</a>
+        <a href="#experience" class="mobile-link"><em>02</em>Experience</a>
+        <a href="#projects" class="mobile-link"><em>03</em>Projects</a>
+        <a href="#research" class="mobile-link"><em>04</em>Research</a>
+        <a href="#gallery" class="mobile-link"><em>05</em>Gallery</a>
+        <a href="#contact" class="mobile-link"><em>06</em>Contact</a>
+      </nav>
+      <a
+        href="../pdf/KiyasMahmud_Resume.pdf"
+        download="KiyasMahmud_Resume"
+        class="mobile-cv"
+      >
+        <i class="fas fa-arrow-down"></i> Download CV
+      </a>
+    </div>
+
+    <main>
+      <!-- ============================================ -->
+      <!-- HERO -->
+      <!-- ============================================ -->
+      <section class="hero" id="hero">
+        <div class="hero-text">
+          <p class="hero-kicker reveal-load">Hello, I am</p>
+          <h1 class="hero-name">
+            <span class="hero-line"><span>Kiyas</span></span>
+            <span class="hero-line"><span>Mahmud</span></span>
+          </h1>
+          <div class="hero-role reveal-load">
+            <span class="hero-role-word" id="roleWord">ML Researcher</span>
+          </div>
+          <p class="hero-tagline reveal-load">
+            Building intelligent systems where deep learning meets real-world
+            engineering, from fraud detection to graph neural networks.
+          </p>
+          <div class="hero-cta reveal-load">
+            <a href="#projects" class="btn btn-solid magnetic">
+              View projects <i class="fas fa-arrow-right"></i>
+            </a>
+            <a
+              href="../pdf/KiyasMahmud_Resume.pdf"
+              download="KiyasMahmud_Resume"
+              class="btn btn-glass magnetic"
+            >
+              <i class="fas fa-arrow-down"></i> Download CV
+            </a>
+          </div>
+          <p class="hero-meta reveal-load">
+            4+ projects <i>·</i> 2 publications <i>·</i> 1 national award
+          </p>
+          <div class="hero-socials reveal-load">
+            <a
+              href="https://github.com/Kiyas-Mahmud"
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a
+              href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+              target="_blank"
+              rel="noopener"
+              aria-label="Google Scholar"
+              ><i class="fab fa-google-scholar"></i
+            ></a>
+          </div>
+        </div>
+
+        <figure class="hero-visual">
+          <div class="glass-photo tilt" id="heroPhoto">
+            <img
+              src="../images/profile/Kiyas.png"
+              alt="Portrait of Kiyas Mahmud"
+            />
+            <div class="glass-photo-glare"></div>
+            <figcaption class="glass-photo-chip">
+              <span class="pulse-dot"></span> Available for opportunities
+            </figcaption>
+          </div>
+        </figure>
+
+        <a href="#about" class="hero-scrollcue" aria-label="Scroll to about">
+          <span></span>
+        </a>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- SKILLS MARQUEE -->
+      <!-- ============================================ -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track" id="marqueeTrack">
+          <span
+            >Python · PyTorch · Scikit-learn · XGBoost · Graph Neural Networks ·
+            NLP · Anomaly Detection · FastAPI · React · Next.js · Vue.js ·
+            Laravel · .NET · C++ · C# · SQL · Java · CatBoost · BiLSTM ·
+            Tailwind CSS ·&nbsp;</span
+          >
+        </div>
+      </div>
+
+      <!-- ============================================ -->
+      <!-- ABOUT / CAPABILITIES -->
+      <!-- ============================================ -->
+      <section class="section" id="about">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">01</span>
+          <h2 class="section-title">About</h2>
+          <span class="section-rule"></span>
+        </div>
+        <div class="section-body">
+          <p class="section-lede" data-reveal>
+            I am a Computer Science undergraduate at AIUB and a Research
+            Assistant at Tech Wing's Lab, working on machine learning systems
+            that hold up outside the notebook: fraud detection in production,
+            anomaly localization in dynamic graphs, and full-stack platforms
+            people actually use.
+          </p>
+
+          <div class="capability" data-reveal>
+            <h3 class="capability-heading">
+              <span class="capability-num">a.</span> Programming languages
+            </h3>
+            <ul class="chip-row">
+              <li class="chip">Python</li>
+              <li class="chip">C++</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">PHP</li>
+              <li class="chip">C#</li>
+              <li class="chip">SQL</li>
+              <li class="chip">Java</li>
+            </ul>
+          </div>
+
+          <div class="capability" data-reveal>
+            <h3 class="capability-heading">
+              <span class="capability-num">b.</span> Frameworks & libraries
+            </h3>
+            <ul class="chip-row">
+              <li class="chip">PyTorch</li>
+              <li class="chip">Scikit-learn</li>
+              <li class="chip">XGBoost</li>
+              <li class="chip">FastAPI</li>
+              <li class="chip">React</li>
+              <li class="chip">Next.js</li>
+              <li class="chip">Vue.js</li>
+              <li class="chip">Laravel</li>
+              <li class="chip">.NET</li>
+            </ul>
+          </div>
+
+          <div class="capability" data-reveal>
+            <h3 class="capability-heading">
+              <span class="capability-num">c.</span> Research areas
+            </h3>
+            <ul class="chip-row">
+              <li class="chip">Machine Learning</li>
+              <li class="chip">Deep Learning</li>
+              <li class="chip">Graph Neural Networks</li>
+              <li class="chip">Anomaly Detection</li>
+              <li class="chip">Fraud Detection</li>
+              <li class="chip">NLP</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- EXPERIENCE TIMELINE -->
+      <!-- ============================================ -->
+      <section class="section" id="experience">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">02</span>
+          <h2 class="section-title">Experience</h2>
+          <span class="section-rule"></span>
+          <p class="section-note">Education, research, and recognition so far.</p>
+        </div>
+        <div class="section-body">
+          <div class="timeline" id="timeline">
+            <div class="timeline-line" aria-hidden="true">
+              <div class="timeline-line-fill" id="timelineFill"></div>
+            </div>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">2018</span>
+              <div class="tl-card glass">
+                <h3>SSC</h3>
+                <p>Singair Pilot High School</p>
+              </div>
+            </article>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">2021</span>
+              <div class="tl-card glass">
+                <h3>HSC</h3>
+                <p>Ideal College, Dhanmondi</p>
+              </div>
+            </article>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">2022 – 2026</span>
+              <div class="tl-card glass">
+                <h3>BSc in Computer Science</h3>
+                <p>American International University-Bangladesh (AIUB)</p>
+              </div>
+            </article>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">Jan 2025 – Present</span>
+              <div class="tl-card glass accent">
+                <h3>Research Assistant</h3>
+                <p>Tech Wing's Lab</p>
+              </div>
+            </article>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">2025</span>
+              <div class="tl-card glass">
+                <h3>Conference Publication</h3>
+                <p>Atlantis Press, Springer Nature</p>
+              </div>
+            </article>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">2025</span>
+              <div class="tl-card glass gold">
+                <h3>Bangladesh ICT & Innovation Awards</h3>
+                <p>Winner, national recognition</p>
+              </div>
+            </article>
+
+            <article class="tl-item" data-reveal>
+              <span class="tl-node" aria-hidden="true"></span>
+              <span class="tl-year">2025</span>
+              <div class="tl-card glass gold">
+                <h3>ICASF 2025, Dubai</h3>
+                <p>Accepted presentation</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- PROJECTS -->
+      <!-- ============================================ -->
+      <section class="section" id="projects">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">03</span>
+          <h2 class="section-title">Projects</h2>
+          <span class="section-rule"></span>
+          <p class="section-note">Selected work, from research to production.</p>
+        </div>
+        <div class="section-body">
+          <!-- Featured project -->
+          <article class="project-feature glass spotlight" data-reveal>
+            <div class="project-feature-main">
+              <div class="project-badges">
+                <span class="badge badge-gold"
+                  ><i class="fas fa-trophy"></i> ICT Award Winner 2025</span
+                >
+                <span class="badge badge-violet"
+                  ><i class="fas fa-globe"></i> ICASF 2025 Dubai</span
+                >
+              </div>
+              <h3 class="project-title">Hybrid Fraud Shield</h3>
+              <p class="project-desc">
+                Real-time fraud detection combining behavioral biometrics with
+                transactional pattern analysis, powered by ensemble ML models
+                and deep learning. Awarded nationally and accepted for
+                presentation in Dubai.
+              </p>
+              <ul class="chip-row">
+                <li class="chip">FastAPI</li>
+                <li class="chip">Next.js</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">XGBoost</li>
+                <li class="chip">CatBoost</li>
+                <li class="chip">BiLSTM</li>
+              </ul>
+            </div>
+            <a
+              href="https://github.com/Kiyas-Mahmud"
+              target="_blank"
+              rel="noopener"
+              class="project-link"
+              aria-label="Hybrid Fraud Shield on GitHub"
+            >
+              <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square"></i>
+            </a>
+          </article>
+
+          <div class="project-grid">
+            <article class="project-card glass spotlight" data-reveal>
+              <h3 class="project-title">ResearchLink</h3>
+              <p class="project-desc">
+                Desktop application for managing academic papers, collaboration
+                tracking, and citations, built with .NET WinForms.
+              </p>
+              <ul class="chip-row">
+                <li class="chip">C#</li>
+                <li class="chip">.NET WinForms</li>
+                <li class="chip">SQL Server</li>
+              </ul>
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+                aria-label="ResearchLink on GitHub"
+              >
+                <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </article>
+
+            <article class="project-card glass spotlight" data-reveal>
+              <h3 class="project-title">Things You Desire</h3>
+              <p class="project-desc">
+                Full-stack e-commerce platform with product management, cart
+                system, and a responsive modern storefront.
+              </p>
+              <ul class="chip-row">
+                <li class="chip">Laravel</li>
+                <li class="chip">Next.js</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">Tailwind CSS</li>
+              </ul>
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+                aria-label="Things You Desire on GitHub"
+              >
+                <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </article>
+
+            <article class="project-card glass spotlight" data-reveal>
+              <h3 class="project-title">Lost & Found</h3>
+              <p class="project-desc">
+                University platform to report lost items, browse found posts,
+                and submit ownership claims, with a role-based admin dashboard.
+              </p>
+              <ul class="chip-row">
+                <li class="chip">Laravel</li>
+                <li class="chip">Next.js</li>
+                <li class="chip">MySQL</li>
+                <li class="chip">REST API</li>
+              </ul>
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+                aria-label="Lost and Found on GitHub"
+              >
+                <span>GitHub</span> <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>
+            </article>
+
+            <a
+              href="https://github.com/Kiyas-Mahmud"
+              target="_blank"
+              rel="noopener"
+              class="project-more glass"
+              data-reveal
+              data-cursor-label="Open"
+            >
+              <i class="fab fa-github"></i>
+              <span>All projects on GitHub</span>
+              <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- RESEARCH / PUBLICATIONS -->
+      <!-- ============================================ -->
+      <section class="section" id="research">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">04</span>
+          <h2 class="section-title">Research</h2>
+          <span class="section-rule"></span>
+          <p class="section-note">Published and accepted work. Click to read the abstract.</p>
+        </div>
+        <div class="section-body">
+          <article class="pub glass" data-reveal>
+            <button
+              class="pub-head"
+              aria-expanded="false"
+              aria-controls="pubBody1"
+              id="pubHead1"
+            >
+              <span class="pub-num">P1</span>
+              <span class="pub-heading">
+                <span class="pub-title"
+                  >Comparative Analysis of Heap Algorithms for Anomaly
+                  Localization in Dynamic GNNs</span
+                >
+                <span class="pub-venue"
+                  >2025 · Atlantis Press, Springer Nature Conference</span
+                >
+              </span>
+              <span class="pub-toggle" aria-hidden="true"
+                ><i class="fas fa-plus"></i
+              ></span>
+            </button>
+            <div class="pub-body" id="pubBody1" role="region" aria-labelledby="pubHead1">
+              <div class="pub-body-inner">
+                <p>
+                  Investigates the efficiency of heap-based algorithms for
+                  localizing anomalous substructures in dynamic graph neural
+                  network representations, comparing min-heap, Fibonacci heap,
+                  and binomial heap approaches for real-time anomaly detection.
+                </p>
+                <div class="pub-actions">
+                  <a
+                    href="https://www.atlantis-press.com/proceedings/icerie-25/126018291"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-glass btn-sm"
+                    >View paper <i class="fas fa-arrow-up-right-from-square"></i
+                  ></a>
+                  <a
+                    href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-glass btn-sm"
+                    >Google Scholar <i class="fas fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="pub glass" data-reveal>
+            <button
+              class="pub-head"
+              aria-expanded="false"
+              aria-controls="pubBody2"
+              id="pubHead2"
+            >
+              <span class="pub-num">P2</span>
+              <span class="pub-heading">
+                <span class="pub-title"
+                  >Real-Time Fusion of Behavioral and Transactional Data for
+                  Fraud Detection</span
+                >
+                <span class="pub-venue">2025 · Accepted, ICASF 2025 Dubai</span>
+              </span>
+              <span class="pub-toggle" aria-hidden="true"
+                ><i class="fas fa-plus"></i
+              ></span>
+            </button>
+            <div class="pub-body" id="pubBody2" role="region" aria-labelledby="pubHead2">
+              <div class="pub-body-inner">
+                <p>
+                  Proposes a multimodal fusion framework combining keystroke
+                  dynamics, mouse movement patterns, and transaction metadata
+                  for real-time online payment fraud detection with ensemble
+                  learning.
+                </p>
+                <div class="pub-actions">
+                  <a
+                    href="https://github.com/Kiyas-Mahmud"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-glass btn-sm"
+                    >GitHub <i class="fas fa-arrow-up-right-from-square"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CERTIFICATES -->
+      <!-- ============================================ -->
+      <section class="section" id="certificates">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">05</span>
+          <h2 class="section-title">Certificates</h2>
+          <span class="section-rule"></span>
+          <div class="carousel-nav">
+            <button class="carousel-btn" id="certPrev" aria-label="Previous certificate">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <button class="carousel-btn" id="certNext" aria-label="Next certificate">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+        <div class="section-body">
+          <div class="carousel" id="certCarousel" data-reveal>
+            <figure class="cert glass">
+              <div class="cert-img">
+                <img
+                  src="../images/Certificate/APICTA.png"
+                  alt="APICTA Awards certificate"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="cert-info">
+                <h3>APICTA Awards</h3>
+                <p>Asia Pacific ICT Alliance</p>
+                <span class="cert-year">2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="cert glass">
+              <div class="cert-img">
+                <img
+                  src="../images/Certificate/BIIN.png"
+                  alt="BIIN recognition certificate"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="cert-info">
+                <h3>BIIN Recognition</h3>
+                <p>Bangladesh Innovation & Invention Network</p>
+                <span class="cert-year">2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="cert glass">
+              <div class="cert-img">
+                <img
+                  src="../images/Certificate/Conference.png"
+                  alt="Conference publication certificate"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="cert-info">
+                <h3>Conference Publication</h3>
+                <p>Atlantis Press, Springer Nature</p>
+                <span class="cert-year">2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="cert glass">
+              <div class="cert-img">
+                <img
+                  src="../images/Certificate/SUST.png"
+                  alt="SUST recognition certificate"
+                  loading="lazy"
+                />
+              </div>
+              <figcaption class="cert-info">
+                <h3>SUST Recognition</h3>
+                <p>Shahjalal University of Science & Technology</p>
+                <span class="cert-year">2025</span>
+              </figcaption>
+            </figure>
+
+            <figure class="cert glass cert-soon">
+              <div class="cert-soon-inner">
+                <i class="fas fa-certificate"></i>
+                <p>More on the way</p>
+              </div>
+            </figure>
+          </div>
+          <div class="carousel-dots" id="certDots" role="tablist" aria-label="Certificates"></div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- GALLERY -->
+      <!-- ============================================ -->
+      <section class="section" id="gallery">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">06</span>
+          <h2 class="section-title">Gallery</h2>
+          <span class="section-rule"></span>
+          <p class="section-note">Moments, milestones, and memories.</p>
+        </div>
+        <div class="section-body">
+          <div class="masonry" id="masonry">
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/innovationnetwork-(2).webp" alt="Innovation Network event" loading="lazy" />
+              <figcaption>Innovation Network event</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/innovationnetwork-(3).webp" alt="Innovation Network gathering" loading="lazy" />
+              <figcaption>Innovation Network</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/innovationnetwork-(4).webp" alt="Innovation summit stage" loading="lazy" />
+              <figcaption>Innovation summit</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/innovationnetwork-(5).jpg" alt="Innovation Network event hall" loading="lazy" />
+              <figcaption>Innovation Network event</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260304_093000689_iOS.jpg" alt="A milestone moment" loading="lazy" />
+              <figcaption>Milestone moment</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_180227065_iOS 1.jpg" alt="A captured moment" loading="lazy" />
+              <figcaption>Captured moment</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_180230917_iOS.jpg" alt="Life and memories" loading="lazy" />
+              <figcaption>Life & memories</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_180242115_iOS.jpg" alt="Milestones" loading="lazy" />
+              <figcaption>Milestones</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_180244813_iOS.jpg" alt="Personal moment" loading="lazy" />
+              <figcaption>Personal</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_180252363_iOS.jpg" alt="Memories" loading="lazy" />
+              <figcaption>Memories</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_180301070_iOS.jpg" alt="The journey so far" loading="lazy" />
+              <figcaption>Journey</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_181648766_iOS.jpg" alt="Achievement moment" loading="lazy" />
+              <figcaption>Achievement</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_181659937_iOS.jpg" alt="Moments" loading="lazy" />
+              <figcaption>Moments</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_181706886_iOS.jpg" alt="Snapshot" loading="lazy" />
+              <figcaption>Snapshot</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_181729993_iOS.jpg" alt="Capture" loading="lazy" />
+              <figcaption>Capture</figcaption>
+            </figure>
+            <figure class="masonry-item" data-reveal data-cursor-label="View">
+              <img src="../images/Gallary/20260307_181733146_iOS.jpg" alt="Memory" loading="lazy" />
+              <figcaption>Memory</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================ -->
+      <!-- CONTACT -->
+      <!-- ============================================ -->
+      <section class="section" id="contact">
+        <div class="section-rail" data-reveal>
+          <span class="section-index">07</span>
+          <h2 class="section-title">Contact</h2>
+          <span class="section-rule"></span>
+          <p class="section-note">
+            Research collaboration, opportunities, or a good conversation.
+          </p>
+        </div>
+        <div class="section-body">
+          <p class="contact-lede" data-reveal>
+            Have a problem worth solving?
+            <em>Let us talk.</em>
+          </p>
+
+          <div class="contact-grid">
+            <form class="contact-form glass" id="contactForm" data-reveal novalidate>
+              <div class="field">
+                <input type="text" id="fieldName" name="name" required autocomplete="name" placeholder=" " />
+                <label for="fieldName">Your name</label>
+              </div>
+              <div class="field">
+                <input type="email" id="fieldEmail" name="email" required autocomplete="email" placeholder=" " />
+                <label for="fieldEmail">Your email</label>
+              </div>
+              <div class="field">
+                <textarea id="fieldMessage" name="message" rows="5" required placeholder=" "></textarea>
+                <label for="fieldMessage">Your message</label>
+              </div>
+              <button type="submit" class="btn btn-solid btn-submit magnetic" id="submitBtn">
+                <span class="btn-submit-text">Send message <i class="fas fa-arrow-right"></i></span>
+              </button>
+              <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+            </form>
+
+            <ul class="contact-list" data-reveal>
+              <li>
+                <a href="mailto:kiyasmahmud@gmail.com" class="contact-row">
+                  <span class="contact-label">Email</span>
+                  <span class="contact-value">kiyasmahmud@gmail.com</span>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+              <li>
+                <span class="contact-row">
+                  <span class="contact-label">Location</span>
+                  <span class="contact-value">Mirpur-1, Dhaka, Bangladesh</span>
+                </span>
+              </li>
+              <li>
+                <a href="https://github.com/Kiyas-Mahmud" target="_blank" rel="noopener" class="contact-row">
+                  <span class="contact-label">GitHub</span>
+                  <span class="contact-value">github.com/Kiyas-Mahmud</span>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" class="contact-row">
+                  <span class="contact-label">Google Scholar</span>
+                  <span class="contact-value">Scholar profile</span>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+              <li>
+                <a href="#" target="_blank" rel="noopener" class="contact-row">
+                  <span class="contact-label">LinkedIn</span>
+                  <span class="contact-value">LinkedIn profile</span>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.atlantis-press.com/proceedings/icerie-25/126018291" target="_blank" rel="noopener" class="contact-row">
+                  <span class="contact-label">Paper</span>
+                  <span class="contact-value">Atlantis Press publication</span>
+                  <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ============================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================ -->
+    <footer class="footer">
+      <p class="footer-copy">© <span id="footerYear">2026</span> Kiyas Mahmud</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Kiyas-Mahmud" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fab fa-google-scholar"></i></a>
+      </div>
+      <p class="footer-line">Built with patience and Python.</p>
+    </footer>
+
+    <!-- Back to top -->
+    <button class="to-top" id="toTop" aria-label="Back to top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close viewer">
+        <i class="fas fa-xmark"></i>
+      </button>
+      <figure class="lightbox-figure">
+        <img src="" alt="" id="lightboxImg" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
