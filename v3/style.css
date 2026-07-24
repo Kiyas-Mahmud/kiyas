@@ -1465,6 +1465,7 @@ main {
 
   .about-portrait {
     max-width: 320px;
+    margin-inline: auto;
   }
 
   .xp {
