@@ -154,6 +154,7 @@
   let meteors = [];
   let impacts = [];
   let nextMeteorAt = 2600;
+  let nextFlyAt = 1400;
 
   function moonGeom() {
     const sphere = document.querySelector("#bodyMoon .sphere");
@@ -168,6 +169,7 @@
     const offset = { x: Math.cos(ang) * dist, y: Math.sin(ang) * dist };
     const fromLeft = Math.random() < 0.7;
     meteors.push({
+      mode: "hit",
       x: fromLeft ? -100 - Math.random() * 140 : Math.random() * W * 0.5,
       y: fromLeft ? Math.random() * H * 0.35 : -100,
       offset,
@@ -176,11 +178,71 @@
     });
   }
 
+  function spawnFly() {
+    // free-falling star: enters from a random edge, streaks across, exits
+    const side = Math.random();
+    let x, y, dir;
+    if (side < 0.5) {
+      // top edge, falling down-left or down-right
+      x = Math.random() * W;
+      y = -80;
+      dir = (Math.random() < 0.5 ? 55 : 125) + (Math.random() - 0.5) * 24;
+    } else if (side < 0.75) {
+      // left edge, falling down-right
+      x = -80;
+      y = Math.random() * H * 0.6;
+      dir = 25 + Math.random() * 28;
+    } else {
+      // right edge, falling down-left
+      x = W + 80;
+      y = Math.random() * H * 0.6;
+      dir = 130 + Math.random() * 28;
+    }
+    const rad = dir * (Math.PI / 180);
+    const speed = 9 + Math.random() * 7;
+    meteors.push({
+      mode: "fly",
+      x,
+      y,
+      vx: Math.cos(rad) * speed,
+      vy: Math.sin(rad) * speed,
+      trail: [],
+    });
+  }
+
+  function drawMeteorBody(mt) {
+    for (let i = 0; i < mt.trail.length - 1; i++) {
+      const p = mt.trail[i];
+      const a = 0.9 * (1 - i / mt.trail.length);
+      fx.strokeStyle = `rgba(228, 230, 238, ${a})`;
+      fx.lineWidth = Math.max(0.8, 3.2 * (1 - i / mt.trail.length));
+      fx.beginPath();
+      fx.moveTo(p.x, p.y);
+      fx.lineTo(mt.trail[i + 1].x, mt.trail[i + 1].y);
+      fx.stroke();
+    }
+    const hg = fx.createRadialGradient(mt.x, mt.y, 0, mt.x, mt.y, 9);
+    hg.addColorStop(0, "rgba(244, 246, 250, 0.95)");
+    hg.addColorStop(0.35, "rgba(228, 230, 238, 0.5)");
+    hg.addColorStop(1, "rgba(228, 230, 238, 0)");
+    fx.fillStyle = hg;
+    fx.beginPath();
+    fx.arc(mt.x, mt.y, 9, 0, Math.PI * 2);
+    fx.fill();
+  }
+
   function updateFx(t) {
     if (!fx) return;
     fx.clearRect(0, 0, W, H);
     const sceneMoon = document.body.dataset.scene === "moon";
-    if (sceneMoon && t > nextMeteorAt && meteors.length < 3) {
+
+    // free-falling stars rain across every section, from all sides
+    if (t > nextFlyAt && meteors.length < 5) {
+      spawnFly();
+      nextFlyAt = t + 1700 + Math.random() * 2800;
+    }
+    // moon-impact meteors only while the moon is on stage
+    if (sceneMoon && t > nextMeteorAt) {
       const g0 = moonGeom();
       if (g0.r > 40) spawnMeteor(g0);
       nextMeteorAt = t + 2600 + Math.random() * 4000;
@@ -189,6 +251,16 @@
     const g = moonGeom();
 
     meteors = meteors.filter((mt) => {
+      if (mt.mode === "fly") {
+        mt.x += mt.vx;
+        mt.y += mt.vy;
+        mt.trail.unshift({ x: mt.x, y: mt.y });
+        if (mt.trail.length > 14) mt.trail.pop();
+        drawMeteorBody(mt);
+        return (
+          mt.x > -220 && mt.x < W + 220 && mt.y < H + 220 && mt.y > -220
+        );
+      }
       const tx = g.cx + mt.offset.x;
       const ty = g.cy + mt.offset.y;
       const dx = tx - mt.x;
@@ -214,24 +286,7 @@
       mt.y += (dy / d) * mt.speed;
       mt.trail.unshift({ x: mt.x, y: mt.y });
       if (mt.trail.length > 14) mt.trail.pop();
-      for (let i = 0; i < mt.trail.length - 1; i++) {
-        const p = mt.trail[i];
-        const a = 0.95 * (1 - i / mt.trail.length);
-        fx.strokeStyle = `rgba(255, 226, 178, ${a})`;
-        fx.lineWidth = Math.max(0.8, 3.4 * (1 - i / mt.trail.length));
-        fx.beginPath();
-        fx.moveTo(p.x, p.y);
-        fx.lineTo(mt.trail[i + 1].x, mt.trail[i + 1].y);
-        fx.stroke();
-      }
-      const hg = fx.createRadialGradient(mt.x, mt.y, 0, mt.x, mt.y, 10);
-      hg.addColorStop(0, "rgba(255, 246, 228, 0.95)");
-      hg.addColorStop(0.35, "rgba(255, 226, 178, 0.5)");
-      hg.addColorStop(1, "rgba(255, 226, 178, 0)");
-      fx.fillStyle = hg;
-      fx.beginPath();
-      fx.arc(mt.x, mt.y, 10, 0, Math.PI * 2);
-      fx.fill();
+      drawMeteorBody(mt);
       return true;
     });
 
@@ -244,8 +299,8 @@
         const a = 0.9 * (1 - age / 320);
         const rad = (8 + age * 0.12) * 3;
         const grad = fx.createRadialGradient(ix, iy, 0, ix, iy, rad);
-        grad.addColorStop(0, `rgba(255, 240, 214, ${a})`);
-        grad.addColorStop(1, "rgba(255, 240, 214, 0)");
+        grad.addColorStop(0, `rgba(238, 240, 246, ${a})`);
+        grad.addColorStop(1, "rgba(238, 240, 246, 0)");
         fx.fillStyle = grad;
         fx.beginPath();
         fx.arc(ix, iy, rad, 0, Math.PI * 2);
@@ -290,11 +345,11 @@
         fx.arc(px2, py2, rad, 0, Math.PI * 2);
         fx.fill();
       }
-      const ea = age < 500 ? 0.45 : 0.45 * (1 - (age - 500) / 3600);
+      const ea = age < 500 ? 0.4 : 0.4 * (1 - (age - 500) / 3600);
       if (ea > 0) {
         const eg = fx.createRadialGradient(ix, iy, 0, ix, iy, 7);
-        eg.addColorStop(0, `rgba(255, 200, 138, ${ea})`);
-        eg.addColorStop(1, "rgba(255, 200, 138, 0)");
+        eg.addColorStop(0, `rgba(216, 214, 208, ${ea})`);
+        eg.addColorStop(1, "rgba(216, 214, 208, 0)");
         fx.fillStyle = eg;
         fx.beginPath();
         fx.arc(ix, iy, 7, 0, Math.PI * 2);
