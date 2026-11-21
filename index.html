@@ -3,29 +3,29 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kiyas Mahmud · ML Researcher &amp; AI Engineer</title>
+    <title>Kiyas Mahmud · AI Researcher</title>
     <meta
       name="description"
-      content="Kiyas Mahmud builds intelligent systems: award-winning fraud detection, AI-powered SaaS, and peer-reviewed research across four IEEE venues."
+      content="Kiyas Mahmud is a Computer Science undergraduate at AIUB researching autonomous web agents, multimodal learning, and trustworthy AI, with papers accepted at IEEE TENCON 2026 and ICECCME 2026."
     />
 
     <!-- Open Graph / social share (kept single-line: many link-preview
          parsers use naive regex and silently drop wrapped meta tags) -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://kiyas.me/" />
-    <meta property="og:title" content="Kiyas Mahmud · ML Researcher &amp; AI Engineer" />
-    <meta property="og:description" content="Kiyas Mahmud builds intelligent systems: award-winning fraud detection, AI-powered SaaS, and peer-reviewed research across four IEEE venues." />
-    <meta property="og:image" content="https://kiyas.me/images/og/kiyas-mahmud.jpg?v=2" />
+    <meta property="og:title" content="Kiyas Mahmud · AI Researcher" />
+    <meta property="og:description" content="Computer Science undergraduate at AIUB researching autonomous web agents, multimodal learning, and trustworthy AI. Papers accepted at IEEE TENCON 2026 and ICECCME 2026." />
+    <meta property="og:image" content="https://kiyas.me/images/og/kiyas-mahmud.jpg?v=3" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Kiyas Mahmud · ML Researcher &amp; AI Engineer" />
-    <meta name="twitter:description" content="Kiyas Mahmud builds intelligent systems: award-winning fraud detection, AI-powered SaaS, and peer-reviewed research across four IEEE venues." />
-    <meta name="twitter:image" content="https://kiyas.me/images/og/kiyas-mahmud.jpg?v=2" />
+    <meta name="twitter:title" content="Kiyas Mahmud · AI Researcher" />
+    <meta name="twitter:description" content="Computer Science undergraduate at AIUB researching autonomous web agents, multimodal learning, and trustworthy AI. Papers accepted at IEEE TENCON 2026 and ICECCME 2026." />
+    <meta name="twitter:image" content="https://kiyas.me/images/og/kiyas-mahmud.jpg?v=3" />
 
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='9' fill='%23f0a64b'/%3E%3Cellipse cx='16' cy='16' rx='14' ry='4.5' fill='none' stroke='%23f0a64b' stroke-width='1.6' transform='rotate(-18 16 16)'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='%230b0f1c' stroke='%23f0a64b' stroke-width='1.5'/%3E%3Cpath d='M10 8v16M10 16l9-8M13 13.5L21 24' fill='none' stroke='%23f0a64b' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
     />
     <script>
       document.documentElement.classList.add("js");
@@ -33,79 +33,47 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;700&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=Martian+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;500;700&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,700;1,400&family=Martian+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="preload" as="image" href="images/space/moon-map.jpg" />
     <link rel="stylesheet" href="style.css" />
   </head>
 
-  <body data-scene="moon">
-    <!-- Preloader -->
-    <div class="preloader" id="preloader" aria-hidden="true">
-      <div class="preloader-inner">
-        <span class="preloader-word">KIYAS&nbsp;MAHMUD</span>
-        <span class="preloader-count" id="preloaderCount">00</span>
-        <span class="preloader-tag">initiating launch sequence</span>
-      </div>
-    </div>
-
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-    <!-- Deep space scene -->
-    <canvas id="starfield" aria-hidden="true"></canvas>
-    <div class="celestial" aria-hidden="true">
-      <div class="body body-moon" id="bodyMoon">
-        <div class="sphere sphere-moon">
-          <div class="sphere-tex"></div>
-          <div class="sphere-shade"></div>
-        </div>
-      </div>
-      <div class="body body-neptune" id="bodyNeptune">
-        <div class="sphere sphere-neptune">
-          <div class="sphere-tex"></div>
-          <div class="sphere-shade"></div>
-        </div>
-      </div>
-      <div class="body body-blackhole" id="bodyBlackhole">
-        <div class="accretion accretion-a"></div>
-        <div class="accretion accretion-b"></div>
-        <img
-          src="images/space/blackhole.jpg"
-          alt=""
-          width="1024"
-          height="1024"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+    <!-- Background: engineered grid with slow signal pulses -->
+    <div class="grid-bg" id="gridBg" aria-hidden="true">
+      <div class="grid-lines"></div>
+      <canvas id="gridCanvas"></canvas>
+      <div class="grid-glow"></div>
     </div>
-    <canvas id="fxCanvas" aria-hidden="true"></canvas>
 
     <!-- Navigation -->
     <header class="nav-wrap">
       <nav class="nav glass" id="nav" aria-label="Primary">
         <a class="nav-brand" href="#hero">
-          <span class="nav-brand-mark"></span>
+          <span class="nav-brand-mark" aria-hidden="true"></span>
           kiyas<span class="nav-brand-dot">·</span>mahmud
         </a>
         <ul class="nav-links">
           <li><a href="#about">About</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#publications">Publications</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#projects">Projects</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#certificates">Certificates</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#honors">Honors</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <a
           class="btn btn-solid nav-cv"
           href="pdf/kiyasmahmud.pdf"
-          download="KiyasMahmud_Resume"
+          download="Kiyas_Mahmud_CV.pdf"
         >
           <i class="fa-solid fa-download" aria-hidden="true"></i> CV
         </a>
@@ -124,460 +92,681 @@
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <nav aria-label="Mobile">
         <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#research">Research</a>
-        <a href="#certificates">Certificates</a>
+        <a href="#skills">Skills</a>
+        <a href="#honors">Honors</a>
+        <a href="#leadership">Leadership</a>
         <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
         <a
           class="btn btn-solid"
           href="pdf/kiyasmahmud.pdf"
-          download="KiyasMahmud_Resume"
+          download="Kiyas_Mahmud_CV.pdf"
         >
-          <i class="fa-solid fa-download" aria-hidden="true"></i> Download resume
+          <i class="fa-solid fa-download" aria-hidden="true"></i> Download CV
         </a>
       </nav>
     </div>
 
     <main id="main">
       <!-- ================= HERO ================= -->
-      <section class="hero" id="hero" data-scene="moon">
+      <section class="hero" id="hero">
         <div class="hero-inner">
-          <p class="telemetry" data-reveal>
-            <span class="telemetry-dot"></span>
-            MISSION LOG · DHAKA · 23.79°N 90.35°E
-          </p>
-          <h1 class="hero-name" data-reveal>
-            Kiyas<br />Mahmud
-          </h1>
-          <p class="hero-role" data-reveal>
-            <span class="hero-role-word" id="roleWord">ML Researcher</span>
-          </p>
-          <p class="hero-lede" data-reveal>
-            I build intelligent systems that survive contact with the real
-            world: fraud detection trusted with 590,000 transactions,
-            scholarship tooling students actually use, and research that ships
-            to IEEE venues.
-          </p>
-          <p class="hero-record mono" data-reveal>
-            4 publications&ensp;·&ensp;WICE 2026 winner&ensp;·&ensp;ICT Award
-            2025&ensp;·&ensp;APICTA 2025
-          </p>
-          <div class="hero-cta" data-reveal>
-            <a class="btn btn-solid" href="#projects" data-magnetic>
-              Explore projects
-              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-            </a>
-            <a
-              class="btn btn-glass"
-              href="pdf/kiyasmahmud.pdf"
-              download="KiyasMahmud_Resume"
-              data-magnetic
-            >
-              <i class="fa-solid fa-download" aria-hidden="true"></i>
-              Download resume
-            </a>
+          <div class="hero-copy">
+            <p class="eyebrow" data-reveal>
+              <span class="eyebrow-dot"></span>
+              Dhaka, Bangladesh · Open to graduate research positions
+            </p>
+            <h1 class="hero-name" data-reveal>Kiyas Mahmud</h1>
+            <p class="hero-role" data-reveal>
+              AI Researcher · Autonomous Agents &amp; Multimodal Learning
+            </p>
+            <p class="hero-lede" data-reveal>
+              Computer Science undergraduate at American International
+              University-Bangladesh (AIUB). My thesis, WebFARM, studies how
+              autonomous web agents detect failures, recover from them, and
+              remember what went wrong. I have contributed to papers accepted at
+              IEEE TENCON 2026 and ICECCME 2026.
+            </p>
+            <div class="hero-cta" data-reveal>
+              <a
+                class="btn btn-solid"
+                href="pdf/kiyasmahmud.pdf"
+                download="Kiyas_Mahmud_CV.pdf"
+              >
+                <i class="fa-solid fa-download" aria-hidden="true"></i>
+                Download CV
+              </a>
+              <a class="btn btn-glass" href="#publications">
+                View publications
+                <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="hero-social" data-reveal>
+              <a
+                href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                target="_blank"
+                rel="noopener"
+                aria-label="Google Scholar"
+                title="Google Scholar"
+                ><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i
+              ></a>
+              <a
+                href="https://github.com/Kiyas-Mahmud"
+                target="_blank"
+                rel="noopener"
+                aria-label="GitHub"
+                title="GitHub"
+                ><i class="fab fa-github" aria-hidden="true"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/kiyas-mahmud-a043b8256/"
+                target="_blank"
+                rel="noopener"
+                aria-label="LinkedIn"
+                title="LinkedIn"
+                ><i class="fab fa-linkedin-in" aria-hidden="true"></i
+              ></a>
+              <a
+                href="mailto:kiyasmahmud@gmail.com"
+                aria-label="Email"
+                title="Email"
+                ><i class="fa-solid fa-envelope" aria-hidden="true"></i
+              ></a>
+            </div>
           </div>
-          <div class="hero-social" data-reveal>
-            <a
-              href="https://github.com/Kiyas-Mahmud"
-              target="_blank"
-              rel="noopener"
-              aria-label="GitHub"
-              ><i class="fab fa-github" aria-hidden="true"></i
-            ></a>
-            <a
-              href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
-              target="_blank"
-              rel="noopener"
-              aria-label="Google Scholar"
-              ><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i
-            ></a>
-            <a
-              href="https://www.linkedin.com/in/kiyas-mahmud-a043b8256/"
-              target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn"
-              ><i class="fab fa-linkedin-in" aria-hidden="true"></i
-            ></a>
-            <a href="mailto:kiyasmahmud@gmail.com" aria-label="Email"
-              ><i class="fa-solid fa-envelope" aria-hidden="true"></i
-            ></a>
-          </div>
+
+          <figure class="hero-portrait glass" data-reveal>
+            <img
+              src="images/profile/kiyas-portrait.jpg"
+              alt="Kiyas Mahmud in a grey suit"
+              width="900"
+              height="1200"
+              decoding="async"
+              fetchpriority="high"
+            />
+            <figcaption class="mono">BSc CS · AIUB · Class of 2026</figcaption>
+          </figure>
         </div>
-        <a class="hero-scrollcue" href="#about" aria-label="Scroll to about">
-          <span></span>
-        </a>
+
+        <dl class="hero-stats" data-reveal>
+          <div>
+            <dt class="mono">Publications</dt>
+            <dd>4</dd>
+            <p>2 accepted at 2026 conferences</p>
+          </div>
+          <div>
+            <dt class="mono">CGPA</dt>
+            <dd>3.45<span>/4.00</span></dd>
+            <p>BSc Computer Science, AIUB</p>
+          </div>
+          <div>
+            <dt class="mono">National award</dt>
+            <dd>Winner</dd>
+            <p>Bangladesh ICT &amp; Innovation Awards 2025</p>
+          </div>
+          <div>
+            <dt class="mono">Thesis dataset</dt>
+            <dd>40K</dd>
+            <p>real-browser interaction steps</p>
+          </div>
+        </dl>
       </section>
 
       <!-- ================= ABOUT ================= -->
-      <section class="section" id="about" data-scene="moon">
+      <section class="section" id="about">
         <header class="section-head" data-reveal>
-          <p class="telemetry">T+01 · LUNAR ORBIT</p>
-          <h2>The person behind<br />the instruments</h2>
+          <p class="section-idx mono">01 / About</p>
+          <h2>Profile &amp; education</h2>
         </header>
 
         <div class="about-grid">
-          <figure class="about-portrait glass" data-reveal data-tilt>
-            <div class="orbit-ring" aria-hidden="true"></div>
-            <img
-              src="images/profile/Kiyas.png"
-              alt="Kiyas Mahmud, photographed in a grey suit"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption class="mono">CS undergrad · AIUB · est. 2026</figcaption>
-          </figure>
-
           <div class="about-copy">
             <p class="about-lead" data-reveal>
-              Computer Science undergraduate specializing in machine learning,
-              full-stack development, and AI systems. I care about the whole
-              journey: cleaning the data, training the ensemble, then shipping
-              it behind an API that holds up in production.
+              I work where machine learning research meets software that has to
+              run in the real world.
             </p>
             <p data-reveal>
-              That approach built Hybrid Fraud Shield, a 13-model ensemble
-              recognized at APICTA 2025, and ScholarNest, the AI scholarship
-              platform that won WICE 2026. When I am not training models, I
-              mentor junior researchers and review manuscripts at Tech Wing's
-              Lab.
+              My research covers autonomous AI agents, multimodal learning, and
+              explainable, trustworthy AI. Alongside it, I have led industry
+              projects end to end, from a 540-endpoint field-sales platform for
+              Elite Group of Industries to a multi-tenant point-of-sale system
+              for a mobile phone wholesaler. Building systems that real users
+              depend on shapes how I design experiments: measurable, reproducible,
+              and honest about failure.
             </p>
 
-            <div class="about-edu" data-reveal>
-              <h3 class="sub-head mono">Education</h3>
-              <ol class="edu-list">
-                <li>
-                  <span class="edu-year mono">2026</span>
-                  <div>
-                    <strong>American International University-Bangladesh</strong>
-                    <span>BSc in Computer Science, expected 2026</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="edu-year mono">2021</span>
-                  <div>
-                    <strong>Ideal College, Dhanmondi</strong>
-                    <span>Higher Secondary Certificate, Science</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="edu-year mono">2018</span>
-                  <div>
-                    <strong>Singair Pilot Government High School</strong>
-                    <span>Secondary School Certificate, Science</span>
-                  </div>
-                </li>
-              </ol>
-            </div>
-
-            <div class="about-skills" data-reveal>
-              <h3 class="sub-head mono">Instrumentation</h3>
+            <div class="interests" data-reveal>
+              <h3 class="sub-head mono">Research interests</h3>
               <ul class="chips">
-                <li>C++</li>
-                <li>Python</li>
-                <li>TypeScript</li>
-                <li>JavaScript</li>
-                <li>PHP</li>
-                <li>Laravel</li>
-                <li>React</li>
-                <li>Next.js</li>
-                <li>Vue.js</li>
-                <li>Nuxt</li>
-                <li>Scikit-learn</li>
-                <li>XGBoost</li>
-                <li>CatBoost</li>
-                <li>SHAP</li>
-                <li>Pandas</li>
-                <li>NumPy</li>
-                <li>FastAPI</li>
-                <li>MySQL</li>
-                <li>PostgreSQL</li>
+                <li>Autonomous AI Agents</li>
+                <li>Multimodal Learning</li>
+                <li>Vision-Language Models</li>
+                <li>Trustworthy AI</li>
+                <li>Explainable AI</li>
+                <li>Machine Learning</li>
+                <li>Cloud Optimization</li>
               </ul>
-              <p class="about-langs mono">
-                English, fluent · Bangla, native
-              </p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- ================= EXPERIENCE ================= -->
-      <section class="section" id="experience" data-scene="neptune">
-        <header class="section-head" data-reveal>
-          <p class="telemetry">T+02 · NEPTUNE FLYBY</p>
-          <h2>Experience</h2>
-        </header>
-
-        <article class="xp glass" data-reveal>
-          <div class="xp-meta">
-            <p class="mono xp-dates">JAN 2025 → MAR 2026</p>
-            <h3>Research Assistant</h3>
-            <p class="xp-org">Tech Wing's Lab · Dhaka, Bangladesh</p>
+          <div class="edu panel glass" data-reveal>
+            <h3 class="sub-head mono">Education</h3>
+            <ol class="edu-list">
+              <li>
+                <div class="edu-top">
+                  <strong>BSc in Computer Science</strong>
+                  <span class="edu-year mono">Dec 2026</span>
+                </div>
+                <span>American International University-Bangladesh (AIUB), Dhaka</span>
+                <span class="edu-score">CGPA 3.45 / 4.00</span>
+              </li>
+              <li>
+                <div class="edu-top">
+                  <strong>Higher Secondary Certificate, Science</strong>
+                  <span class="edu-year mono">2021</span>
+                </div>
+                <span>Ideal College, Dhanmondi, Dhaka</span>
+                <span class="edu-score">GPA 4.75 / 5.00</span>
+              </li>
+              <li>
+                <div class="edu-top">
+                  <strong>Secondary School Certificate, Science</strong>
+                  <span class="edu-year mono">2018</span>
+                </div>
+                <span>Singair Pilot Government High School, Manikganj</span>
+                <span class="edu-score">GPA 4.94 / 5.00</span>
+              </li>
+            </ol>
+            <p class="edu-langs mono">English · fluent &nbsp;|&nbsp; Bangla · native</p>
           </div>
-          <ul class="xp-points">
-            <li>
-              Support research design, analysis, documentation, and publication
-              preparation.
-            </li>
-            <li>
-              Mentor junior researchers in academic writing and research
-              methodology.
-            </li>
-            <li>
-              Review manuscripts for clarity, structure, formatting, and
-              technical accuracy.
-            </li>
-            <li>
-              Assist with citation checks and paper refinement for publication
-              readiness.
-            </li>
-          </ul>
-        </article>
-      </section>
-
-      <!-- ================= PROJECTS ================= -->
-      <section class="section" id="projects" data-scene="neptune">
-        <header class="section-head" data-reveal>
-          <p class="telemetry">T+03 · PAYLOAD DEPLOYMENT</p>
-          <h2>Projects that<br />left the hangar</h2>
-        </header>
-
-        <div class="proj-featured">
-          <article class="proj glass" data-reveal data-tilt>
-            <div class="proj-badge mono">
-              <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-              WICE 2026 · WINNER
-            </div>
-            <h3>ScholarNest</h3>
-            <p class="proj-tag">AI-powered global scholarship command center</p>
-            <ul class="proj-points">
-              <li>
-                Scholarship tracker with global discovery, smart filters,
-                deadline alerts, application pipelines, and document
-                checklists.
-              </li>
-              <li>
-                Professor CRM with AI-personalized emails, follow-up
-                scheduling, reply tracking, and smart notifications.
-              </li>
-              <li>
-                Document vault, analytics dashboard, risk scoring, AI document
-                review, and Telegram and email reminder workflows.
-              </li>
-            </ul>
-            <ul class="chips chips-dim">
-              <li>Nuxt 3</li>
-              <li>Vue.js</li>
-              <li>TypeScript</li>
-              <li>PostgreSQL</li>
-              <li>Prisma</li>
-              <li>Tailwind</li>
-              <li>Redis</li>
-              <li>Cloudflare R2</li>
-              <li>Gemini AI</li>
-            </ul>
-          </article>
-
-          <article class="proj glass" data-reveal data-tilt>
-            <div class="proj-badge mono">
-              <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
-              APICTA 2025 · ICT AWARD 2025
-            </div>
-            <h3>Hybrid Fraud Shield</h3>
-            <p class="proj-tag">AI-based real-time fraud detection</p>
-            <ul class="proj-points">
-              <li>
-                Hybrid detection built on XGBoost, CatBoost, CNN, and BiLSTM,
-                fused with meta-learning across 13 models.
-              </li>
-              <li>
-                Explainable AI through SHAP and Integrated Gradients, so every
-                risk score can defend itself.
-              </li>
-              <li>
-                Real-time risk analysis served through FastAPI on cleaned,
-                verified transaction datasets.
-              </li>
-            </ul>
-            <ul class="chips chips-dim">
-              <li>Python</li>
-              <li>Scikit-learn</li>
-              <li>XGBoost</li>
-              <li>CatBoost</li>
-              <li>SHAP</li>
-              <li>FastAPI</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="proj-ledger">
-          <article class="ledger-row" data-reveal>
-            <span class="ledger-idx mono">03</span>
-            <div class="ledger-main">
-              <h3>UniFind</h3>
-              <p>
-                Campus lost-and-found platform: verification-based claim
-                pipelines, admin moderation, role-based access, and an
-                analytics dashboard.
-              </p>
-            </div>
-            <p class="ledger-tools mono">PHP 8 · MySQL · REST · JS</p>
-          </article>
-          <article class="ledger-row" data-reveal>
-            <span class="ledger-idx mono">04</span>
-            <div class="ledger-main">
-              <h3>ResearchLink</h3>
-              <p>
-                Desktop app for research papers and recruitment: role-based
-                access for admins, authors, and researchers, with submission
-                and status tracking.
-              </p>
-            </div>
-            <p class="ledger-tools mono">C# · .NET WinForms · SQL Server</p>
-          </article>
-          <article class="ledger-row" data-reveal>
-            <span class="ledger-idx mono">05</span>
-            <div class="ledger-main">
-              <h3>Things You Desire</h3>
-              <p>
-                E-commerce clothing platform: guest checkout, product variants,
-                inventory sync, promotional banners, and sales reporting.
-              </p>
-            </div>
-            <p class="ledger-tools mono">Laravel · Next.js · MySQL · ShadCN</p>
-          </article>
         </div>
       </section>
 
       <!-- ================= RESEARCH ================= -->
-      <section class="section" id="research" data-scene="blackhole">
+      <section class="section" id="research">
         <header class="section-head" data-reveal>
-          <p class="telemetry">T+04 · EVENT HORIZON</p>
-          <h2>Research heavy<br />enough to bend light</h2>
+          <p class="section-idx mono">02 / Research</p>
+          <h2>Research experience</h2>
+        </header>
+
+        <article class="thesis panel glass" data-reveal>
+          <div class="thesis-head">
+            <p class="tag-line mono">Undergraduate thesis · Lead technical researcher</p>
+            <h3>
+              WebFARM: A Multimodal Framework for Failure Detection, Adaptive
+              Recovery and Episodic Memory in Autonomous Web Agents
+            </h3>
+            <p class="thesis-sup">
+              Supervisor: Asst. Prof. Nuzhat Tabassum, Department of Computer
+              Science, AIUB
+            </p>
+          </div>
+
+          <div class="thesis-body">
+            <ul class="points">
+              <li>
+                Led the technical research: methodology and experimental design,
+                framework architecture and implementation, model integration,
+                experiment execution, and results analysis.
+              </li>
+              <li>
+                Developed and evaluated multimodal approaches using
+                Qwen2-VL-2B, Qwen2.5-VL-7B, and InternVL3.5-8B on Web-Gold-40K,
+                a dataset of 40,017 real-browser interaction steps.
+              </li>
+              <li>
+                Evaluated Browser Use and SeeAct agents across 22 websites and
+                42 tasks.
+              </li>
+            </ul>
+
+            <dl class="metrics">
+              <div>
+                <dt class="mono">Best F1</dt>
+                <dd>0.839</dd>
+              </div>
+              <div>
+                <dt class="mono">Recovery prediction</dt>
+                <dd>93.49%</dd>
+              </div>
+              <div>
+                <dt class="mono">Browser Use gain</dt>
+                <dd>+13.1<span>pp</span></dd>
+              </div>
+              <div>
+                <dt class="mono">SeeAct gain</dt>
+                <dd>+20.2<span>pp</span></dd>
+              </div>
+            </dl>
+            <p class="metrics-note">
+              Preliminary results; task-completion gains measured over the
+              unmodified agents.
+            </p>
+          </div>
+
+          <div class="link-row">
+            <a
+              class="link-btn"
+              href="https://github.com/Kiyas-Mahmud/webagent"
+              target="_blank"
+              rel="noopener"
+              ><i class="fab fa-github" aria-hidden="true"></i> Code</a
+            >
+            <a
+              class="link-btn"
+              href="https://github.com/Kiyas-Mahmud/multimodal-browser-agent-data"
+              target="_blank"
+              rel="noopener"
+              ><i class="fa-solid fa-database" aria-hidden="true"></i>
+              Web-Gold-40K dataset</a
+            >
+          </div>
+        </article>
+
+        <article class="ra-row" data-reveal>
+          <div>
+            <p class="tag-line mono">Jan 2025 – Mar 2026</p>
+            <h3>Research Assistant · Tech Wing's Lab, Dhaka</h3>
+          </div>
+          <p>
+            Assisted with research planning, analysis, documentation, and
+            research paper preparation; reviewed academic papers and guided
+            junior researchers in academic writing and research methods.
+          </p>
+        </article>
+      </section>
+
+      <!-- ================= PUBLICATIONS ================= -->
+      <section class="section" id="publications">
+        <header class="section-head" data-reveal>
+          <p class="section-idx mono">03 / Publications</p>
+          <h2>Publications</h2>
         </header>
 
         <ol class="pub-list">
           <li class="pub" data-reveal>
-            <span class="pub-idx mono">P·01</span>
+            <span class="pub-idx mono">[1]</span>
             <div class="pub-body">
               <h3>
                 AutoTuneX: An Intelligent Self-Optimizing Runtime Framework for
                 Cloud Applications
               </h3>
-              <p class="pub-venue">Accepted at IEEE TENCON 2026, Bali, Indonesia</p>
-              <p class="pub-note">
-                Closed-loop Kubernetes autoscaling with five components, from
-                Monitor to Safety Validator. 72.2% cost reduction with zero SLO
-                violations, validated on a live Minikube deployment.
+              <p class="pub-venue">
+                <span class="status status-accepted">Accepted</span>
+                IEEE TENCON 2026, Bali, Indonesia
               </p>
+              <p class="pub-note">
+                Five-component closed-loop Kubernetes autoscaler. Live Minikube
+                experiments reported 72.2% lower cost, zero SLO violations, and
+                zero scaling oscillations using Linear Regression.
+              </p>
+              <div class="link-row">
+                <a
+                  class="link-btn"
+                  href="https://github.com/Kiyas-Mahmud/AutoTuneX"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fab fa-github" aria-hidden="true"></i> Code</a
+                >
+              </div>
             </div>
           </li>
           <li class="pub" data-reveal>
-            <span class="pub-idx mono">P·02</span>
+            <span class="pub-idx mono">[2]</span>
             <div class="pub-body">
               <h3>
                 Hybrid FraudShield: Detecting Financial Fraud in Real Time with
                 Explainable AI
               </h3>
-              <p class="pub-venue">Accepted at ICECCME 2026, Bali, Indonesia</p>
-              <p class="pub-note">
-                11-model stacking ensemble over 590,000 IEEE-CIS transactions.
-                98.7% accuracy, 0.978 ROC-AUC, with SHAP explanations served
-                under 500 ms.
+              <p class="pub-venue">
+                <span class="status status-accepted">Accepted</span>
+                ICECCME 2026, Bali, Indonesia
               </p>
+              <p class="pub-note">
+                Stacking ensemble with a Logistic Regression meta-learner on
+                about 590,000 IEEE-CIS transactions: 98.7% accuracy, 0.978
+                ROC-AUC, and an 8.1-point precision gain over XGBoost at equal
+                recall, with SHAP explanations under 500 ms.
+              </p>
+              <div class="link-row">
+                <a
+                  class="link-btn"
+                  href="https://github.com/Kiyas-Mahmud/Hybrid-Fraud-Shield"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fab fa-github" aria-hidden="true"></i> Code</a
+                >
+              </div>
             </div>
           </li>
           <li class="pub" data-reveal>
-            <span class="pub-idx mono">P·03</span>
+            <span class="pub-idx mono">[3]</span>
             <div class="pub-body">
               <h3>
                 Comparative Analysis of Heap Algorithms for Anomaly Localization
                 in Dynamic Graph Neural Networks
               </h3>
               <p class="pub-venue">
-                Published in Atlantis Press, Proceedings of ICERIE 2025
+                <span class="status status-published">Published</span>
+                Atlantis Press, Proceedings of ICERIE 2025 · online 18 Nov 2025
               </p>
               <p class="pub-note">
-                Fibonacci, D-ary, and PriorityQueue heaps inside Dijkstra's
-                Algorithm, measured for speed, memory, and scalability.
+                Compared Fibonacci, D-ary, and PriorityQueue heaps in
+                Dijkstra's Algorithm for anomaly localization, examining
+                efficiency, memory use, and scalability.
               </p>
+              <div class="link-row">
+                <a
+                  class="link-btn"
+                  href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                  target="_blank"
+                  rel="noopener"
+                  ><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+                  Google Scholar</a
+                >
+              </div>
             </div>
           </li>
           <li class="pub" data-reveal>
-            <span class="pub-idx mono">P·04</span>
+            <span class="pub-idx mono">[4]</span>
             <div class="pub-body">
               <h3>
                 Real-Time Fusion of Behavioral and Transactional Data for Fraud
                 Detection
               </h3>
-              <p class="pub-venue">Presented at ICASF 2025, Dubai</p>
+              <p class="pub-venue">
+                <span class="status status-presented">Presented</span>
+                ICASF 2025, Dubai
+              </p>
               <p class="pub-note">
-                Ensemble framework fusing behavioral, transactional, and device
-                signals for live fraud calls.
+                Ensemble framework combining behavioral, transactional, and
+                device-level data for real-time fraud detection.
               </p>
             </div>
           </li>
         </ol>
-
-        <div class="milestones" data-reveal>
-          <h3 class="sub-head mono">Milestones</h3>
-          <ul class="milestone-list">
-            <li>
-              <i class="fa-solid fa-medal" aria-hidden="true"></i>
-              <div>
-                <strong>Silver Medal, WICEBD</strong>
-                <span
-                  >World Invention Competition &amp; Exhibition Bangladesh, for
-                  ScholarNest</span
-                >
-              </div>
-            </li>
-            <li>
-              <i class="fa-solid fa-trophy" aria-hidden="true"></i>
-              <div>
-                <strong>Winner, Bangladesh ICT &amp; Innovation Awards 2025</strong>
-                <span>National recognition for Hybrid Fraud Shield</span>
-              </div>
-            </li>
-            <li>
-              <i class="fa-solid fa-globe" aria-hidden="true"></i>
-              <div>
-                <strong>Participant, Asia Pacific ICT Alliance Awards 2025</strong>
-                <span>Represented Hybrid Fraud Shield regionally</span>
-              </div>
-            </li>
-          </ul>
-        </div>
       </section>
 
-      <!-- ================= CERTIFICATES ================= -->
-      <section class="section" id="certificates" data-scene="void">
+      <!-- ================= EXPERIENCE ================= -->
+      <section class="section" id="experience">
         <header class="section-head" data-reveal>
-          <p class="telemetry">T+05 · FLIGHT CERTIFICATIONS</p>
-          <h2>Certificates</h2>
+          <p class="section-idx mono">04 / Experience</p>
+          <h2>Professional &amp; industry experience</h2>
         </header>
 
-        <div class="cert-courses" data-reveal>
-          <article class="cert-course glass">
-            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+        <div class="xp-list">
+          <article class="xp panel glass" data-reveal>
+            <div class="xp-meta">
+              <p class="tag-line mono">Industry collaboration</p>
+              <h3>Sales Officer Copilot</h3>
+              <p class="xp-org">Elite Group of Industries, Bangladesh</p>
+              <p class="xp-kind">AI-powered sales management platform</p>
+              <span class="private-note mono"
+                ><i class="fa-solid fa-lock" aria-hidden="true"></i> Client
+                project · private</span
+              >
+            </div>
             <div>
-              <h3>Machine Learning with Python</h3>
-              <p>
-                IBM, Coursera. Regression, classification, clustering, and
-                model evaluation.
+              <ul class="points">
+                <li>
+                  Led the development of a Bangla and English sales app with
+                  GPS tracking, reporting, and live team monitoring.
+                </li>
+                <li>
+                  Built a secure backend with 540 API endpoints and integrated
+                  a Gemini-powered AI sales assistant.
+                </li>
+              </ul>
+              <p class="tech mono">
+                Python · FastAPI · Cloudflare Workers · Flutter · React · Gemini
+                API
               </p>
             </div>
           </article>
-          <article class="cert-course glass">
+
+          <article class="xp panel glass" data-reveal>
+            <div class="xp-meta">
+              <p class="tag-line mono">Client project · 2026</p>
+              <h3>Phonelot</h3>
+              <p class="xp-org">Taslima Enterprise, Bangladesh</p>
+              <p class="xp-kind">Wholesale mobile phone POS</p>
+              <span class="private-note mono"
+                ><i class="fa-solid fa-lock" aria-hidden="true"></i> Client
+                project · private</span
+              >
+            </div>
+            <div>
+              <ul class="points">
+                <li>
+                  Developed a Bangla and English sales system for phone
+                  inventory, orders, payments, and barcode scanning.
+                </li>
+                <li>
+                  Built a secure backend with inventory tracking, activity
+                  logs, backups, and 494 automated tests.
+                </li>
+              </ul>
+              <p class="tech mono">
+                Nuxt 4 · TypeScript · Hono · Cloudflare D1 · Tesseract.js ·
+                ZXing WASM
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= PROJECTS ================= -->
+      <section class="section" id="projects">
+        <header class="section-head" data-reveal>
+          <p class="section-idx mono">05 / Projects</p>
+          <h2>Selected projects</h2>
+        </header>
+
+        <div class="proj-grid">
+          <article class="proj panel glass" data-reveal>
+            <p class="proj-badge mono">
+              <i class="fa-solid fa-medal" aria-hidden="true"></i> WICEBD Silver
+              Medal
+            </p>
+            <h3>ScholarNest</h3>
+            <p class="proj-tag">AI-powered scholarship management platform</p>
+            <ul class="points">
+              <li>
+                Global scholarship discovery, application tracking, professor
+                CRM, AI-personalized emails, and document review.
+              </li>
+              <li>
+                Automated follow-ups, deadline alerts, analytics, risk scoring,
+                and secure document management.
+              </li>
+            </ul>
+            <p class="tech mono">
+              Nuxt 3 · Vue.js · TypeScript · PostgreSQL · Prisma ORM · Redis ·
+              Gemini AI
+            </p>
+            <div class="link-row">
+              <a
+                class="link-btn link-live"
+                href="https://scholarnest.app"
+                target="_blank"
+                rel="noopener"
+                ><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                Live site</a
+              >
+            </div>
+          </article>
+
+          <article class="proj panel glass" data-reveal>
+            <p class="proj-badge mono">
+              <i class="fa-solid fa-trophy" aria-hidden="true"></i> National ICT
+              Award 2025 · APICTA 2025
+            </p>
+            <h3>Hybrid Fraud Shield</h3>
+            <p class="proj-tag">Explainable AI-based fraud detection</p>
+            <ul class="points">
+              <li>
+                Hybrid ML/DL system combining XGBoost, CatBoost, CNN, and
+                BiLSTM with ensemble learning for real-time transaction risk
+                assessment.
+              </li>
+              <li>
+                SHAP and Integrated Gradients for explainable predictions,
+                served through a FastAPI real-time inference service.
+              </li>
+            </ul>
+            <p class="tech mono">
+              Python · Scikit-learn · XGBoost · CatBoost · SHAP · FastAPI
+            </p>
+            <div class="link-row">
+              <a
+                class="link-btn"
+                href="https://github.com/Kiyas-Mahmud/Hybrid-Fraud-Shield"
+                target="_blank"
+                rel="noopener"
+                ><i class="fab fa-github" aria-hidden="true"></i> GitHub</a
+              >
+            </div>
+          </article>
+
+          <article class="proj panel glass" data-reveal>
+            <p class="proj-badge proj-badge-muted mono">
+              <i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>
+              Legal tech
+            </p>
+            <h3>HandyLaw</h3>
+            <p class="proj-tag">AI-powered legal drafting platform</p>
+            <ul class="points">
+              <li>
+                AI-assisted Bangla legal drafting with verified legal-source
+                citations, structured case analysis, and mandatory advocate
+                review and approval.
+              </li>
+              <li>
+                Secure AI authorization, Gemini output validation, sandboxed
+                DOCX/PDF generation, and 2,400+ automated tests.
+              </li>
+            </ul>
+            <p class="tech mono">
+              TypeScript · Hono · Cloudflare Workers · D1 · Nuxt 4 · Gemini API
+              · Zod · Vitest
+            </p>
+            <div class="link-row">
+              <span class="private-note mono"
+                ><i class="fa-solid fa-lock" aria-hidden="true"></i> Private
+                repository</span
+              >
+            </div>
+          </article>
+        </div>
+
+        <p class="more-link" data-reveal>
+          <a
+            href="https://github.com/Kiyas-Mahmud?tab=repositories"
+            target="_blank"
+            rel="noopener"
+            >More projects on GitHub
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i
+          ></a>
+        </p>
+      </section>
+
+      <!-- ================= SKILLS ================= -->
+      <section class="section" id="skills">
+        <header class="section-head" data-reveal>
+          <p class="section-idx mono">06 / Skills</p>
+          <h2>Technical skills</h2>
+        </header>
+
+        <dl class="skill-table panel glass" data-reveal>
+          <div>
+            <dt class="mono">AI / ML</dt>
+            <dd>
+              Scikit-learn, XGBoost, CatBoost, SHAP/TreeSHAP, Gemini API, model
+              evaluation, preprocessing, ensemble and stacking methods, fraud
+              detection
+            </dd>
+          </div>
+          <div>
+            <dt class="mono">Agentic systems</dt>
+            <dd>
+              Autonomous web agents, failure detection, adaptive recovery,
+              episodic memory, AI agent integration
+            </dd>
+          </div>
+          <div>
+            <dt class="mono">Programming</dt>
+            <dd>Python, C++, JavaScript, TypeScript, PHP, C#, Dart</dd>
+          </div>
+          <div>
+            <dt class="mono">Frameworks &amp; cloud</dt>
+            <dd>
+              FastAPI, Flutter, React, Next.js, Vue, Nuxt 3/4, Laravel, Hono,
+              SQLAlchemy, Drizzle ORM, Zod, PWA, Cloudflare
+              Workers/D1/R2/Queues/Vectorize/AI Gateway, Docker
+            </dd>
+          </div>
+          <div>
+            <dt class="mono">Data, security &amp; tools</dt>
+            <dd>
+              PostgreSQL, MySQL, SQL Server, Redis, RBAC, biometric
+              authorization, audit logging, Tesseract.js, Vitest, GitHub
+              Actions, Git, Jupyter, Pandas, NumPy, Supervisely
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ================= HONORS & CERTIFICATES ================= -->
+      <section class="section" id="honors">
+        <header class="section-head" data-reveal>
+          <p class="section-idx mono">07 / Honors</p>
+          <h2>Honors, awards &amp; certificates</h2>
+        </header>
+
+        <ul class="award-list" data-reveal>
+          <li>
+            <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+            <div>
+              <strong>Winner · Bangladesh ICT &amp; Innovation Awards 2025</strong>
+              <span>National recognition for Hybrid Fraud Shield</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-medal" aria-hidden="true"></i>
+            <div>
+              <strong
+                >Silver Medal · World Invention Competition &amp; Exhibition
+                Bangladesh (WICEBD)</strong
+              >
+              <span>Awarded for ScholarNest</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa-solid fa-globe" aria-hidden="true"></i>
+            <div>
+              <strong>Participant · Asia Pacific ICT Alliance (APICTA) Awards 2025</strong>
+              <span>Presented Hybrid Fraud Shield in the regional round</span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="cert-courses" data-reveal>
+          <article class="cert-course panel glass">
+            <i class="fa-solid fa-brain" aria-hidden="true"></i>
+            <div>
+              <h3>Machine Learning with Python</h3>
+              <p>IBM · Coursera</p>
+            </div>
+          </article>
+          <article class="cert-course panel glass">
             <i class="fa-solid fa-server" aria-hidden="true"></i>
             <div>
               <h3>PHP and Laravel, Batch 2</h3>
-              <p>
-                OSTAD. Backend development: Laravel, databases, APIs, and
-                deployment.
-              </p>
+              <p>OSTAD</p>
             </div>
           </article>
         </div>
@@ -585,15 +774,15 @@
         <div class="cert-grid">
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/WICE2026.png"
-              alt="WICE 2026 winner certificate"
+              src="images/Certificate/web/WICE2026.webp"
+              alt="WICEBD 2026 silver medal certificate"
               loading="lazy"
               decoding="async"
             />
           </button>
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/APICTA.png"
+              src="images/Certificate/web/APICTA.webp"
               alt="APICTA Awards certificate"
               loading="lazy"
               decoding="async"
@@ -601,7 +790,7 @@
           </button>
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/BIIN.png"
+              src="images/Certificate/web/BIIN.webp"
               alt="BIIN recognition certificate"
               loading="lazy"
               decoding="async"
@@ -609,7 +798,7 @@
           </button>
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/BuildFest2026.png"
+              src="images/Certificate/web/BuildFest2026.webp"
               alt="BuildFest 2026 certificate"
               loading="lazy"
               decoding="async"
@@ -617,7 +806,7 @@
           </button>
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/Daffodil.png"
+              src="images/Certificate/web/Daffodil.webp"
               alt="Daffodil International University certificate"
               loading="lazy"
               decoding="async"
@@ -625,7 +814,7 @@
           </button>
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/Conference.png"
+              src="images/Certificate/web/Conference.webp"
               alt="Conference publication certificate"
               loading="lazy"
               decoding="async"
@@ -633,7 +822,7 @@
           </button>
           <button class="cert-item" data-reveal data-lightbox>
             <img
-              src="images/Certificate/SUST.png"
+              src="images/Certificate/web/SUST.webp"
               alt="SUST recognition certificate"
               loading="lazy"
               decoding="async"
@@ -642,17 +831,65 @@
         </div>
       </section>
 
-      <!-- ================= GALLERY ================= -->
-      <section class="section" id="gallery" data-scene="void">
+      <!-- ================= LEADERSHIP ================= -->
+      <section class="section" id="leadership">
         <header class="section-head" data-reveal>
-          <p class="telemetry">T+06 · CREW ARCHIVE</p>
-          <h2>Gallery</h2>
+          <p class="section-idx mono">08 / Leadership</p>
+          <h2>Leadership &amp; community</h2>
+        </header>
+
+        <div class="lead-grid">
+          <article class="lead panel glass" data-reveal>
+            <p class="tag-line mono">Founder &amp; Instructor</p>
+            <h3>CodeSage</h3>
+            <p>
+              Founded an independent educational platform and taught
+              programming and technology courses to over 100 university
+              students, with technical mentorship and practical coding
+              guidance.
+            </p>
+          </article>
+          <article class="lead panel glass" data-reveal>
+            <p class="tag-line mono">Finance Head</p>
+            <h3>Charity For Happiness</h3>
+            <p>
+              Managed financial activities and supported charitable work:
+              financial assistance, food and winter clothing distribution, and
+              direct on-field support for underprivileged communities.
+            </p>
+          </article>
+          <article class="lead panel glass" data-reveal>
+            <p class="tag-line mono">Patrol Leader (Mate) · 2018</p>
+            <h3>6th National COMDECA · Bangladesh Scouts</h3>
+            <p>
+              Led a Scout patrol at the National Community Development Camp in
+              Haimchar, Chandpur, coordinating team logistics, disaster
+              preparedness drills, and community service.
+            </p>
+          </article>
+          <article class="lead panel glass" data-reveal>
+            <p class="tag-line mono">Sixer (Team Leader) · 2007</p>
+            <h3>Manikganj District Cub Camporee · Bangladesh Scouts</h3>
+            <p>
+              Led a six-member Cub Scout unit representing Singair Pilot
+              Primary School, coordinating camp logistics, team drills, and
+              community service.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- ================= GALLERY ================= -->
+      <section class="section" id="gallery">
+        <header class="section-head" data-reveal>
+          <p class="section-idx mono">09 / Gallery</p>
+          <h2>Events &amp; recognition</h2>
         </header>
 
         <div class="gallery-grid">
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/innovationnetwork-(2).webp"
+              src="images/Gallary/web/innovationnetwork-(2).webp"
               alt="Innovation Network event"
               loading="lazy"
               decoding="async"
@@ -660,7 +897,7 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/innovationnetwork-(3).webp"
+              src="images/Gallary/web/innovationnetwork-(3).webp"
               alt="Innovation Network gathering"
               loading="lazy"
               decoding="async"
@@ -668,7 +905,7 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/innovationnetwork-(4).webp"
+              src="images/Gallary/web/innovationnetwork-(4).webp"
               alt="Innovation summit stage"
               loading="lazy"
               decoding="async"
@@ -676,7 +913,7 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/innovationnetwork-(5).jpg"
+              src="images/Gallary/web/innovationnetwork-(5).webp"
               alt="Innovation Network event hall"
               loading="lazy"
               decoding="async"
@@ -684,7 +921,7 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260304_093000689_iOS.jpg"
+              src="images/Gallary/web/20260304_093000689_iOS.webp"
               alt="A milestone moment"
               loading="lazy"
               decoding="async"
@@ -692,23 +929,23 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_180230917_iOS.jpg"
-              alt="Life and memories"
+              src="images/Gallary/web/20260307_180230917_iOS.webp"
+              alt="Award event"
               loading="lazy"
               decoding="async"
             />
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_180242115_iOS.jpg"
-              alt="Milestones"
+              src="images/Gallary/web/20260307_180242115_iOS.webp"
+              alt="Award event with team"
               loading="lazy"
               decoding="async"
             />
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_180252363_iOS.jpg"
+              src="images/Gallary/web/20260307_180252363_iOS.webp"
               alt="Award ceremony moment"
               loading="lazy"
               decoding="async"
@@ -716,15 +953,15 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_180301070_iOS.jpg"
-              alt="The journey so far"
+              src="images/Gallary/web/20260307_180301070_iOS.webp"
+              alt="Award ceremony"
               loading="lazy"
               decoding="async"
             />
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_181648766_iOS.jpg"
+              src="images/Gallary/web/20260307_181648766_iOS.webp"
               alt="Achievement moment"
               loading="lazy"
               decoding="async"
@@ -732,7 +969,7 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_181729993_iOS.jpg"
+              src="images/Gallary/web/20260307_181729993_iOS.webp"
               alt="Team celebration"
               loading="lazy"
               decoding="async"
@@ -740,8 +977,8 @@
           </button>
           <button class="g-item" data-reveal data-lightbox>
             <img
-              src="images/Gallary/20260307_181733146_iOS.jpg"
-              alt="A captured memory"
+              src="images/Gallary/web/20260307_181733146_iOS.webp"
+              alt="Team at the award event"
               loading="lazy"
               decoding="async"
             />
@@ -750,34 +987,30 @@
       </section>
 
       <!-- ================= CONTACT ================= -->
-      <section class="section section-contact" id="contact" data-scene="void">
+      <section class="section section-contact" id="contact">
         <header class="section-head" data-reveal>
-          <p class="telemetry">T+07 · RE-ENTRY</p>
-          <h2>Open a channel</h2>
+          <p class="section-idx mono">10 / Contact</p>
+          <h2>Get in touch</h2>
         </header>
 
-        <div class="contact-panel glass" data-reveal>
+        <div class="contact-panel panel glass" data-reveal>
           <p class="contact-lede">
-            Recruiting, research collaboration, or a project worth building?
-            Transmission is open.
+            I am looking for graduate research opportunities in autonomous
+            agents, multimodal learning, and trustworthy AI. I would be glad to
+            hear from faculty, labs, and scholarship committees.
           </p>
           <div class="contact-actions">
-            <a
-              class="btn btn-solid"
-              href="mailto:kiyasmahmud@gmail.com"
-              data-magnetic
-            >
+            <a class="btn btn-solid" href="mailto:kiyasmahmud@gmail.com">
               <i class="fa-solid fa-envelope" aria-hidden="true"></i>
               kiyasmahmud@gmail.com
             </a>
             <a
               class="btn btn-glass"
               href="pdf/kiyasmahmud.pdf"
-              download="KiyasMahmud_Resume"
-              data-magnetic
+              download="Kiyas_Mahmud_CV.pdf"
             >
               <i class="fa-solid fa-download" aria-hidden="true"></i>
-              Download resume
+              Download CV
             </a>
           </div>
           <ul class="contact-meta">
@@ -790,6 +1023,15 @@
               Mirpur-1, Dhaka, Bangladesh
             </li>
             <li>
+              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              <a
+                href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                target="_blank"
+                rel="noopener"
+                >Google Scholar</a
+              >
+            </li>
+            <li>
               <i class="fab fa-github" aria-hidden="true"></i>
               <a
                 href="https://github.com/Kiyas-Mahmud"
@@ -799,27 +1041,45 @@
               >
             </li>
             <li>
-              <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+              <i class="fab fa-linkedin-in" aria-hidden="true"></i>
               <a
-                href="https://scholar.google.com/citations?user=nWZ3Gr0AAAAJ&hl=en&authuser=1"
+                href="https://www.linkedin.com/in/kiyas-mahmud-a043b8256/"
                 target="_blank"
                 rel="noopener"
-                >Google Scholar</a
+                >LinkedIn</a
               >
             </li>
           </ul>
+
+          <div class="refs">
+            <p class="refs-title mono">References</p>
+            <div class="refs-grid">
+              <div>
+                <strong>Prof. Dr. Afroza Nahar</strong>
+                <span>Professor, Department of Computer Science, AIUB</span>
+              </div>
+              <div>
+                <strong>Asst. Prof. Nuzhat Tabassum</strong>
+                <span
+                  >Assistant Professor, Department of Computer Science, AIUB ·
+                  Undergraduate thesis supervisor</span
+                >
+              </div>
+            </div>
+            <p class="refs-note">Contact details for referees are in the CV.</p>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
       <p class="footer-name">Kiyas Mahmud</p>
-      <p class="footer-role">Machine Learning Researcher &amp; AI Engineer</p>
+      <p class="footer-role">AI Researcher · Computer Science, AIUB</p>
       <p class="mono">© 2026 Kiyas Mahmud. All rights reserved.</p>
     </footer>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
       <button class="lightbox-close" id="lightboxClose" aria-label="Close">
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>

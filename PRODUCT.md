@@ -6,8 +6,9 @@ brand
 
 ## Users
 
-Recruiters, research labs, and collaborators visiting Kiyas Mahmud's personal
-portfolio. Typical session: 60 to 90 seconds on a laptop, judging credibility,
+Scholarship committees, prospective supervisors, research labs, and recruiters
+visiting Kiyas Mahmud's personal portfolio. Primary use: graduate scholarship
+and research applications, so the tone is academic and professional. Typical session: 60 to 90 seconds on a laptop, judging credibility,
 skimming projects and publications, then deciding whether to reach out. They
 arrive via GitHub, Google Scholar, or a shared link, often in the evening on a
 dimly lit screen.
@@ -40,10 +41,12 @@ flourish per fold.
 1. Credibility in the first scroll. Awards, publications, and projects lead;
    decoration follows.
 2. Glass is structural, not decorative. Frosted panels exist only where content
-   floats over the aurora light field.
+   floats over the background grid. The background is an engineered grid with
+   slow amber signal pulses; no planets, stars, or space scenery (removed
+   Nov 2026 as too playful for scholarship use).
 3. One idea per fold. Long scroll, deliberate pacing, generous separation.
-4. Motion is orchestration, not noise. One choreographed load, then quiet
-   scroll-driven reveals.
+4. Motion is quiet. No preloader, tilt, or magnetic effects; only short fade
+   reveals and the background grid pulses.
 5. Warmth through words. Precise layouts, human copy.
 
 ## Accessibility & Inclusion
