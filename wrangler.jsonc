@@ -3,6 +3,10 @@
   "name": "kiyas",
   "main": "worker/index.js",
   "compatibility_date": "2026-11-01",
+  "routes": [
+    { "pattern": "kiyas.me", "custom_domain": true },
+    { "pattern": "www.kiyas.me", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./public",
     "binding": "ASSETS",
