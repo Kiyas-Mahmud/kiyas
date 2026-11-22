@@ -37,7 +37,7 @@ export const SECTIONS = [
     key: "site",
     icon: "fa-gear",
     group: "Settings",
-    anchor: "#hero",
+    anchor: "",
     title: "Site settings",
     hint: "Browser title, share preview, CV file and footer.",
     fields: [
@@ -53,7 +53,7 @@ export const SECTIONS = [
     key: "hero",
     icon: "fa-house",
     group: "Page",
-    anchor: "#hero",
+    anchor: "",
     title: "Hero",
     hint: "The first screen: name, role, intro, portrait and headline numbers.",
     fields: [

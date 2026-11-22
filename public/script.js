@@ -280,6 +280,55 @@
     .forEach((a) => a.addEventListener("click", () => setMenu(false)));
 
   /* ==========================================================
+     In-page links: scroll to the section but keep the address
+     bar clean (kiyas.me, never kiyas.me/#hero).
+     ========================================================== */
+  const cleanUrl = () =>
+    history.replaceState(null, "", location.pathname + location.search);
+
+  function scrollToId(id, focus) {
+    const target = id ? document.getElementById(id) : null;
+    const behavior = reducedMotion ? "instant" : "smooth";
+    if (!target || id === "hero") {
+      window.scrollTo({ top: 0, behavior });
+    } else {
+      target.scrollIntoView({ behavior, block: "start" });
+    }
+    if (focus && target) {
+      if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+      target.focus({ preventScroll: true });
+    }
+  }
+
+  document.addEventListener("click", (e) => {
+    if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target.closest("a[href]");
+    if (!a) return;
+    const href = a.getAttribute("href");
+    const isTop = href === "/" && location.pathname === "/";
+    if (!href.startsWith("#") && !isTop) return;
+    e.preventDefault();
+    const id = isTop ? "" : href.slice(1);
+    scrollToId(id, a.classList.contains("skip-link"));
+    cleanUrl();
+  });
+
+  // Old shared links like kiyas.me/#projects still land on the section.
+  if (location.hash) {
+    const id = decodeURIComponent(location.hash.slice(1));
+    if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+    cleanUrl();
+    const land = () => {
+      const target = document.getElementById(id);
+      if (target && id !== "hero") target.scrollIntoView({ behavior: "instant", block: "start" });
+    };
+    land();
+    // Again once images have loaded and the layout has settled.
+    if (document.readyState === "complete") setTimeout(land, 100);
+    else window.addEventListener("load", () => setTimeout(land, 50), { once: true });
+  }
+
+  /* ==========================================================
      Lightbox
      ========================================================== */
   const lightbox = document.getElementById("lightbox");

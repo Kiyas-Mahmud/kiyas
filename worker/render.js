@@ -455,7 +455,7 @@ export function renderPage(c, origin) {
 
     <header class="nav-wrap">
       <nav class="nav glass" id="nav" aria-label="Primary">
-        <a class="nav-brand" href="#hero">
+        <a class="nav-brand" href="/">
           <span class="nav-brand-mark" aria-hidden="true"></span>
           ${esc(first || "")}${rest.length ? `<span class="nav-brand-dot">·</span>${esc(rest.join(" "))}` : ""}
         </a>
