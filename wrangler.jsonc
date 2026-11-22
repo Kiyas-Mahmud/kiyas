@@ -12,6 +12,7 @@
     {
       "binding": "DB",
       "database_name": "kiyas-db",
+      "database_id": "c33283f9-ee5c-464b-bfc6-4cb52bca3f35",
       "migrations_dir": "migrations"
     }
   ],
