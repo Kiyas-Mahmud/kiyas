@@ -15,6 +15,14 @@ export function safeUrl(u) {
   return "";
 }
 
+// Download name for the CV. Always ends in .pdf; defaults to Kiyas-Mahmud.pdf.
+export function cvFile(site) {
+  let name = String(site?.cvFileName || "").trim().replace(/[\\/:*?"<>|\r\n]+/g, "").replace(/\s+/g, "-");
+  if (!name) name = "Kiyas-Mahmud";
+  if (!/\.pdf$/i.test(name)) name += ".pdf";
+  return name;
+}
+
 const arr = (v) => (Array.isArray(v) ? v : []);
 const has = (v) => String(v ?? "").trim() !== "";
 
@@ -89,7 +97,7 @@ function hero(h, site) {
             ${has(h.role) ? `<p class="hero-role" data-reveal>${esc(h.role)}</p>` : ""}
             ${has(h.lede) ? `<p class="hero-lede" data-reveal>${esc(h.lede)}</p>` : ""}
             <div class="hero-cta" data-reveal>
-              ${cv ? `<a class="btn btn-solid" href="${esc(cv)}" download="${esc(site.cvFileName || "CV.pdf")}"><i class="fa-solid fa-download" aria-hidden="true"></i> Download CV</a>` : ""}
+              ${cv ? `<a class="btn btn-solid" href="/cv" download="${esc(cvFile(site))}"><i class="fa-solid fa-download" aria-hidden="true"></i> Download CV</a>` : ""}
               <a class="btn btn-glass" href="#publications">View publications <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
             ${social.length ? `<div class="hero-social" data-reveal>${social.join("")}</div>` : ""}
@@ -340,7 +348,7 @@ function contact(c, site, h) {
           ${has(c.lede) ? `<p class="contact-lede">${esc(c.lede)}</p>` : ""}
           <div class="contact-actions">
             ${has(c.email) ? `<a class="btn btn-solid" href="mailto:${esc(c.email)}"><i class="fa-solid fa-envelope" aria-hidden="true"></i> ${esc(c.email)}</a>` : ""}
-            ${cv ? `<a class="btn btn-glass" href="${esc(cv)}" download="${esc(site.cvFileName || "CV.pdf")}"><i class="fa-solid fa-download" aria-hidden="true"></i> Download CV</a>` : ""}
+            ${cv ? `<a class="btn btn-glass" href="/cv" download="${esc(cvFile(site))}"><i class="fa-solid fa-download" aria-hidden="true"></i> Download CV</a>` : ""}
           </div>
           ${meta.length ? `<ul class="contact-meta">${meta.join("")}</ul>` : ""}
           ${
@@ -382,7 +390,7 @@ export function renderPage(c, origin) {
     return s.startsWith("/") ? origin + s : s;
   };
   const cv = safeUrl(site.cvUrl);
-  const cvName = esc(site.cvFileName || "CV.pdf");
+  const cvName = esc(cvFile(site));
 
   const shown = BODY.filter(([key, , , , empty]) => !empty(c[key] || {}));
   let n = 0;
@@ -452,7 +460,7 @@ export function renderPage(c, origin) {
           ${esc(first || "")}${rest.length ? `<span class="nav-brand-dot">·</span>${esc(rest.join(" "))}` : ""}
         </a>
         <ul class="nav-links">${desktopNav}</ul>
-        ${cv ? `<a class="btn btn-solid nav-cv" href="${esc(cv)}" download="${cvName}"><i class="fa-solid fa-download" aria-hidden="true"></i> CV</a>` : ""}
+        ${cv ? `<a class="btn btn-solid nav-cv" href="/cv" download="${cvName}"><i class="fa-solid fa-download" aria-hidden="true"></i> CV</a>` : ""}
         <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
           <span></span><span></span>
         </button>
@@ -462,7 +470,7 @@ export function renderPage(c, origin) {
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <nav aria-label="Mobile">
         ${mobileNav}
-        ${cv ? `<a class="btn btn-solid" href="${esc(cv)}" download="${cvName}"><i class="fa-solid fa-download" aria-hidden="true"></i> Download CV</a>` : ""}
+        ${cv ? `<a class="btn btn-solid" href="/cv" download="${cvName}"><i class="fa-solid fa-download" aria-hidden="true"></i> Download CV</a>` : ""}
       </nav>
     </div>
 

@@ -45,7 +45,7 @@ export const SECTIONS = [
       { key: "description", label: "Search / share description", type: "textarea", maxHint: 160, help: "Shown on Google and when the link is shared. About 150–160 characters works best." },
       { key: "ogImage", label: "Share image (1200×630)", type: "image", noCompress: true, help: "Preview image for WhatsApp, Facebook, LinkedIn. Use a 1200×630 image." },
       { key: "cvUrl", label: "CV (PDF)", type: "file", accept: "application/pdf", help: "Upload a new PDF to replace the CV on every Download CV button." },
-      { key: "cvFileName", label: "CV download file name", type: "text" },
+      { key: "cvFileName", label: "CV download file name", type: "text", help: "The name the file gets when someone downloads it. Default: Kiyas-Mahmud.pdf" },
       { key: "footerRole", label: "Footer line", type: "text" },
     ],
   },

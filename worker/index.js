@@ -12,7 +12,7 @@
    Secrets: ADMIN_PASSWORD, SESSION_SECRET  (wrangler secret put …) */
 
 import seed from "./seed.json";
-import { renderPage, safeUrl } from "./render.js";
+import { renderPage, safeUrl, cvFile } from "./render.js";
 import { SECTIONS, SECTION_KEYS } from "../public/admin/schema.js";
 
 const COOKIE = "kiyas_admin";
@@ -217,6 +217,37 @@ async function media(env, key) {
   return new Response(obj.body, { headers });
 }
 
+// /cv → the current CV, always downloaded as Kiyas-Mahmud.pdf (or the
+// name set in Site settings), wherever the file itself is stored.
+async function cv(req, env) {
+  const site = (await loadContent(env)).site || {};
+  const src = safeUrl(site.cvUrl);
+  if (!src) return new Response("CV not found", { status: 404 });
+
+  let body;
+  if (src.startsWith("/media/")) {
+    const obj = await env.MEDIA.get(src.slice(7));
+    if (!obj) return new Response("CV not found", { status: 404 });
+    body = obj.body;
+  } else if (src.startsWith("/")) {
+    const res = await env.ASSETS.fetch(new Request(new URL(src, req.url)));
+    if (!res.ok) return new Response("CV not found", { status: 404 });
+    body = res.body;
+  } else {
+    return Response.redirect(src, 302);
+  }
+
+  const name = cvFile(site);
+  return new Response(req.method === "HEAD" ? null : body, {
+    headers: {
+      "content-type": "application/pdf",
+      "content-disposition": `attachment; filename="${name}"; filename*=UTF-8''${encodeURIComponent(name)}`,
+      "cache-control": "no-cache",
+      "x-content-type-options": "nosniff",
+    },
+  });
+}
+
 const SECURITY_HEADERS = {
   "x-content-type-options": "nosniff",
   "referrer-policy": "strict-origin-when-cross-origin",
@@ -238,6 +269,9 @@ export default {
       }
 
       if (pathname.startsWith("/media/") && method === "GET") return media(env, pathname.slice(7));
+
+      if ((pathname === "/cv" || pathname === "/cv.pdf" || pathname === "/pdf/kiyasmahmud.pdf") && (method === "GET" || method === "HEAD"))
+        return cv(req, env);
 
       if (pathname === "/api/login" && method === "POST") return login(req, env);
 
