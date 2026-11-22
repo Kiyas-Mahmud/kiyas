@@ -33,7 +33,7 @@
   --font-body: "Schibsted Grotesk", system-ui, sans-serif;
   --font-mono: "Martian Mono", ui-monospace, monospace;
 
-  --section-pad: clamp(4.5rem, 11vh, 8rem);
+  --section-pad: clamp(3.25rem, 7vh, 5rem);
   --gutter: clamp(1rem, 5vw, 4rem);
   --radius: 18px;
 }
@@ -1581,4 +1581,113 @@ main {
     opacity: 1;
     transform: none;
   }
+}
+
+/* ============================================================
+   BALANCED GRIDS
+   The renderer sets --cols / --cols-md / --cols-sm from the item
+   count so rows never end in an empty hole; an incomplete last row
+   is centred instead of left-aligned.
+   ============================================================ */
+
+.bal {
+  --gap: 1.25rem;
+  --c: var(--cols, 3);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  columns: auto;
+}
+
+.bal > * {
+  flex: 0 0 calc((100% - (var(--c) - 1) * var(--gap)) / var(--c));
+  max-width: calc((100% - (var(--c) - 1) * var(--gap)) / var(--c));
+  min-width: 0;
+  margin: 0;
+}
+
+.cert-grid.bal,
+.gallery-grid.bal {
+  --gap: 1rem;
+}
+
+@media (max-width: 960px) {
+  .bal {
+    --c: var(--cols-md, 2);
+  }
+}
+
+@media (max-width: 600px) {
+  .bal {
+    --c: var(--cols-sm, 1);
+    --gap: 0.85rem;
+  }
+}
+
+/* awards: individual cards instead of a joined table, so a centred
+   last row has no visible seam background behind it */
+.award-list.bal {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.award-list.bal li {
+  border: 1px solid var(--glass-brd);
+  border-radius: var(--radius);
+  background: rgba(10, 14, 26, 0.82);
+  transition: border-color 0.2s ease;
+}
+
+.award-list.bal li:hover {
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+/* equal-height cards in a row */
+.proj-grid.bal > .proj,
+.lead-grid.bal > .lead,
+.cert-courses.bal > .cert-course,
+.award-list.bal > li {
+  height: auto;
+  align-self: stretch;
+}
+
+/* gallery: uniform tiles instead of ragged masonry columns */
+.gallery-grid.bal .g-item {
+  margin: 0;
+  aspect-ratio: 4 / 3;
+  background: rgba(14, 18, 32, 0.7);
+}
+
+.gallery-grid.bal .g-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-grid.bal .g-item:hover img {
+  transform: scale(1.03);
+}
+
+/* hero stats: columns follow the number of stats */
+.hero-stats {
+  grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+}
+
+@media (max-width: 760px) {
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .hero-stats > div:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* thesis metrics: an odd last metric spans the row */
+.metrics > div:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
 }

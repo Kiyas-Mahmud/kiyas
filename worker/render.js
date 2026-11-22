@@ -23,6 +23,17 @@ export function cvFile(site) {
   return name;
 }
 
+// Pick a column count that leaves no holes: use n itself when it fits,
+// otherwise the largest count <= max that divides n; if none does, use
+// max and let CSS centre the last row.
+function pickCols(n, max) {
+  if (n <= max) return Math.max(n, 1);
+  for (let c = max; c >= 2; c--) if (n % c === 0) return c;
+  return max;
+}
+const bal = (n, lg, md, sm) =>
+  ` style="--cols:${pickCols(n, lg)};--cols-md:${pickCols(n, md)};--cols-sm:${pickCols(n, sm)}"`;
+
 const arr = (v) => (Array.isArray(v) ? v : []);
 const has = (v) => String(v ?? "").trim() !== "";
 
@@ -113,7 +124,7 @@ function hero(h, site) {
         </div>
         ${
           stats.length
-            ? `<dl class="hero-stats" data-reveal>${stats
+            ? `<dl class="hero-stats" data-reveal style="--cols:${pickCols(stats.length, 4)}">${stats
                 .map(
                   (s) =>
                     `<div><dt class="mono">${esc(s.label)}</dt><dd>${esc(s.value)}${has(s.suffix) ? `<span>${esc(s.suffix)}</span>` : ""}</dd>${has(s.note) ? `<p>${esc(s.note)}</p>` : ""}</div>`
@@ -260,7 +271,7 @@ function projects(p) {
     .join("");
   const more = safeUrl(p.moreUrl);
   return `
-        <div class="proj-grid">${cards}
+        <div class="proj-grid bal"${bal(arr(p.items).length, 3, 2, 1)}>${cards}
         </div>
         ${more ? `<p class="more-link" data-reveal><a href="${esc(more)}" target="_blank" rel="noopener">More projects on GitHub <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>` : ""}`;
 }
@@ -286,7 +297,7 @@ function honors(h) {
   return `
         ${
           awards.length
-            ? `<ul class="award-list" data-reveal>${awards
+            ? `<ul class="award-list bal" data-reveal${bal(awards.length, 3, 2, 1)}>${awards
                 .map(
                   (a) => `<li><i class="fa-solid fa-${esc(a.icon || "award")}" aria-hidden="true"></i><div><strong>${esc(a.title)}</strong>${has(a.note) ? `<span>${esc(a.note)}</span>` : ""}</div></li>`
                 )
@@ -295,19 +306,19 @@ function honors(h) {
         }
         ${
           courses.length
-            ? `<div class="cert-courses" data-reveal>${courses
+            ? `<div class="cert-courses bal" data-reveal${bal(courses.length, 3, 2, 1)}>${courses
                 .map(
                   (c) => `<article class="cert-course panel glass"><i class="fa-solid fa-certificate" aria-hidden="true"></i><div><h3>${esc(c.title)}</h3><p>${esc(c.issuer)}</p></div></article>`
                 )
                 .join("")}</div>`
             : ""
         }
-        ${certs.length ? `<div class="cert-grid">${certs.map((c) => imgButton("cert-item", c)).join("")}</div>` : ""}`;
+        ${certs.length ? `<div class="cert-grid bal"${bal(certs.filter((x) => safeUrl(x.image)).length, 4, 3, 2)}>${certs.map((c) => imgButton("cert-item", c)).join("")}</div>` : ""}`;
 }
 
 function leadership(l) {
   return `
-        <div class="lead-grid">${arr(l.items)
+        <div class="lead-grid bal"${bal(arr(l.items).length, 2, 2, 1)}>${arr(l.items)
           .map(
             (it) => `
           <article class="lead panel glass" data-reveal>
@@ -322,7 +333,7 @@ function leadership(l) {
 
 function gallery(g) {
   return `
-        <div class="gallery-grid">${arr(g.items).map((it) => imgButton("g-item", it)).join("")}
+        <div class="gallery-grid bal"${bal(arr(g.items).filter((x) => safeUrl(x.image)).length, 4, 3, 2)}>${arr(g.items).map((it) => imgButton("g-item", it)).join("")}
         </div>`;
 }
 
@@ -355,7 +366,7 @@ function contact(c, site, h) {
             refs.length
               ? `<div class="refs">
             <p class="refs-title mono">References</p>
-            <div class="refs-grid">${refs.map((r) => `<div><strong>${esc(r.name)}</strong><span>${esc(r.title)}</span></div>`).join("")}</div>
+            <div class="refs-grid bal"${bal(refs.length, 2, 2, 1)}>${refs.map((r) => `<div><strong>${esc(r.name)}</strong><span>${esc(r.title)}</span></div>`).join("")}</div>
             ${has(c.refsNote) ? `<p class="refs-note">${esc(c.refsNote)}</p>` : ""}
           </div>`
               : ""
