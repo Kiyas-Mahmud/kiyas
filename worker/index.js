@@ -189,7 +189,7 @@ async function saveSection(req, env, key) {
   )
     .bind(key, JSON.stringify(data), Date.now())
     .run();
-  return json({ ok: true, data });
+  return json({ ok: true, data, updated: Date.now() });
 }
 
 async function upload(req, env) {
@@ -249,8 +249,16 @@ export default {
         if (method !== "GET" && !sameOrigin(req)) return json({ error: "Bad origin" }, 403);
 
         if (pathname === "/api/admin/me") return json({ ok: true });
-        if (pathname === "/api/admin/content" && method === "GET")
-          return json({ sections: await loadContent(env), keys: SECTION_KEYS });
+        if (pathname === "/api/admin/content" && method === "GET") {
+          const updated = {};
+          try {
+            const { results } = await env.DB.prepare("SELECT key, updated_at FROM sections").all();
+            for (const r of results) updated[r.key] = r.updated_at;
+          } catch {
+            /* timestamps are optional */
+          }
+          return json({ sections: await loadContent(env), keys: SECTION_KEYS, updated });
+        }
         const m = pathname.match(/^\/api\/admin\/content\/([a-z]+)$/);
         if (m && method === "PUT") return saveSection(req, env, m[1]);
         if (pathname === "/api/admin/upload" && method === "POST") return upload(req, env);

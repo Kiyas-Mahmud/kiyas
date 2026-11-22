@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>Site Admin</title>
+    <title>kiyas.me Admin</title>
     <link
       rel="icon"
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='%230b0f1c' stroke='%23f0a64b' stroke-width='1.5'/%3E%3Cpath d='M10 8v16M10 16l9-8M13 13.5L21 24' fill='none' stroke='%23f0a64b' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
@@ -19,57 +19,94 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="/admin/admin.css" />
+    <link rel="stylesheet" href="/admin/admin.css?v=2" />
   </head>
   <body>
+    <div class="bg-grid" aria-hidden="true"></div>
+
+    <!-- Boot -->
+    <div class="boot" id="bootView">
+      <span class="spinner" aria-hidden="true"></span>
+      <span class="sr-only">Loading…</span>
+    </div>
+
     <!-- Login -->
     <main class="login" id="loginView" hidden>
       <form class="login-card" id="loginForm">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <h1>Site admin</h1>
-        <p class="muted">Sign in to edit kiyas.me.</p>
-        <label for="password">Password</label>
-        <input id="password" type="password" autocomplete="current-password" required autofocus />
-        <button class="btn btn-solid" type="submit">Sign in</button>
+        <div class="monogram" aria-hidden="true">K</div>
+        <h1>Welcome back</h1>
+        <p class="muted">Sign in to edit <strong>kiyas.me</strong></p>
+
+        <label class="f-label" for="password">Password</label>
+        <div class="pw-wrap">
+          <input id="password" type="password" autocomplete="current-password" required />
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password" title="Show password">
+            <i class="fa-regular fa-eye" aria-hidden="true"></i>
+          </button>
+        </div>
         <p class="form-error" id="loginError" role="alert"></p>
+
+        <button class="btn btn-solid btn-block" type="submit" id="loginBtn">
+          <span>Sign in</span> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
+        <a class="back-link" href="/"><i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Back to site</a>
       </form>
     </main>
 
     <!-- Editor -->
     <div class="app" id="appView" hidden>
-      <aside class="side">
+      <aside class="side" id="side">
         <div class="side-head">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <strong>Site admin</strong>
+          <div class="monogram monogram-sm" aria-hidden="true">K</div>
+          <div>
+            <strong>kiyas.me</strong>
+            <span class="side-sub">Content admin</span>
+          </div>
+          <button class="icon-btn side-close" id="sideClose" type="button" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
         </div>
         <nav class="side-nav" id="sideNav" aria-label="Sections"></nav>
         <div class="side-foot">
-          <a class="side-link" href="/" target="_blank" rel="noopener"
-            ><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> View site</a
-          >
+          <a class="side-link" href="/" target="_blank" rel="noopener">
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> View live site
+          </a>
           <button class="side-link" id="logoutBtn" type="button">
             <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Sign out
           </button>
         </div>
       </aside>
+      <div class="scrim" id="scrim" hidden></div>
 
-      <main class="editor">
-        <header class="editor-head">
-          <div>
+      <main class="main">
+        <header class="topbar">
+          <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+          <div class="topbar-title">
+            <p class="crumb mono" id="crumb"></p>
             <h1 id="sectionTitle"></h1>
-            <p class="muted" id="sectionHint"></p>
+          </div>
+          <div class="topbar-actions">
+            <span class="saved-at" id="savedAt"></span>
+            <a class="btn btn-ghost" id="previewBtn" href="/" target="_blank" rel="noopener">
+              <i class="fa-regular fa-eye" aria-hidden="true"></i><span class="hide-sm"> Preview</span>
+            </a>
+            <button class="btn btn-solid" id="saveBtn" type="button" disabled>
+              <i class="fa-solid fa-check" aria-hidden="true"></i> <span id="saveLabel">Saved</span>
+            </button>
           </div>
         </header>
-        <form id="sectionForm" class="form" novalidate></form>
-        <div class="savebar">
-          <span class="save-status" id="saveStatus" role="status"></span>
-          <button class="btn btn-solid" id="saveBtn" type="button">
-            <i class="fa-solid fa-floppy-disk" aria-hidden="true"></i> Save section
-          </button>
+
+        <div class="content">
+          <p class="section-hint" id="sectionHint"></p>
+          <form id="sectionForm" class="form" novalidate></form>
         </div>
       </main>
     </div>
 
-    <script type="module" src="/admin/admin.js"></script>
+    <div class="toasts" id="toasts" aria-live="polite"></div>
+
+    <script type="module" src="/admin/admin.js?v=2"></script>
   </body>
 </html>

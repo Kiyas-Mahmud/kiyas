@@ -35,27 +35,33 @@ const linkList = {
 export const SECTIONS = [
   {
     key: "site",
+    icon: "fa-gear",
+    group: "Settings",
+    anchor: "#hero",
     title: "Site settings",
     hint: "Browser title, share preview, CV file and footer.",
     fields: [
       { key: "title", label: "Page title", type: "text" },
-      { key: "description", label: "Search / share description", type: "textarea" },
-      { key: "ogImage", label: "Share image (1200×630)", type: "image" },
-      { key: "cvUrl", label: "CV (PDF)", type: "file", accept: "application/pdf" },
+      { key: "description", label: "Search / share description", type: "textarea", maxHint: 160, help: "Shown on Google and when the link is shared. About 150–160 characters works best." },
+      { key: "ogImage", label: "Share image (1200×630)", type: "image", noCompress: true, help: "Preview image for WhatsApp, Facebook, LinkedIn. Use a 1200×630 image." },
+      { key: "cvUrl", label: "CV (PDF)", type: "file", accept: "application/pdf", help: "Upload a new PDF to replace the CV on every Download CV button." },
       { key: "cvFileName", label: "CV download file name", type: "text" },
       { key: "footerRole", label: "Footer line", type: "text" },
     ],
   },
   {
     key: "hero",
+    icon: "fa-house",
+    group: "Page",
+    anchor: "#hero",
     title: "Hero",
     hint: "The first screen: name, role, intro, portrait and headline numbers.",
     fields: [
-      { key: "eyebrow", label: "Small line above name", type: "text" },
+      { key: "eyebrow", label: "Small line above name", type: "text", help: "Example: Dhaka, Bangladesh · Open to graduate research positions" },
       { key: "name", label: "Name", type: "text" },
       { key: "role", label: "Role line", type: "text" },
       { key: "lede", label: "Intro paragraph", type: "textarea" },
-      { key: "portrait", label: "Portrait", type: "image" },
+      { key: "portrait", label: "Portrait", type: "image", help: "A portrait (3:4) photo works best." },
       { key: "portraitAlt", label: "Portrait description (alt text)", type: "text" },
       { key: "portraitCaption", label: "Portrait caption", type: "text" },
       { key: "scholar", label: "Google Scholar URL", type: "url" },
@@ -78,13 +84,16 @@ export const SECTIONS = [
   },
   {
     key: "about",
+    icon: "fa-user",
+    group: "Page",
+    anchor: "#about",
     title: "About",
     hint: "Profile text, research interests, education and languages.",
     fields: [
       ...heading("01", "Profile & education"),
       { key: "lead", label: "Lead sentence", type: "textarea" },
       { key: "body", label: "Profile paragraph", type: "textarea" },
-      { key: "interests", label: "Research interests (one per line)", type: "lines" },
+      { key: "interests", label: "Research interests", type: "lines", help: "One interest per line. Each line becomes a chip." },
       {
         key: "education",
         label: "Education",
@@ -102,6 +111,9 @@ export const SECTIONS = [
   },
   {
     key: "research",
+    icon: "fa-flask",
+    group: "Page",
+    anchor: "#research",
     title: "Research",
     hint: "Thesis card and research assistant roles.",
     fields: [
@@ -109,7 +121,7 @@ export const SECTIONS = [
       { key: "thesisTag", label: "Thesis tag line", type: "text" },
       { key: "thesisTitle", label: "Thesis title", type: "textarea" },
       { key: "thesisSupervisor", label: "Supervisor line", type: "text" },
-      { key: "thesisPoints", label: "Thesis bullet points (one per line)", type: "lines" },
+      { key: "thesisPoints", label: "Thesis bullet points", type: "lines", help: "One point per line." },
       {
         key: "metrics",
         label: "Result metrics",
@@ -138,6 +150,9 @@ export const SECTIONS = [
   },
   {
     key: "publications",
+    icon: "fa-book-open",
+    group: "Page",
+    anchor: "#publications",
     title: "Publications",
     hint: "Papers with status and links. Order here is the order on the site.",
     fields: [
@@ -169,6 +184,9 @@ export const SECTIONS = [
   },
   {
     key: "experience",
+    icon: "fa-briefcase",
+    group: "Page",
+    anchor: "#experience",
     title: "Experience",
     hint: "Professional and industry work.",
     fields: [
@@ -184,14 +202,17 @@ export const SECTIONS = [
           { key: "org", label: "Organisation", type: "text" },
           { key: "kind", label: "Kind of work", type: "text" },
           { key: "private", label: "Show “Client project · private”", type: "checkbox" },
-          { key: "points", label: "Bullet points (one per line)", type: "lines" },
-          { key: "tech", label: "Technologies (one per line)", type: "lines" },
+          { key: "points", label: "Bullet points", type: "lines", help: "One point per line." },
+          { key: "tech", label: "Technologies", type: "lines", help: "One per line. Shown as Python · FastAPI · …" },
         ],
       },
     ],
   },
   {
     key: "projects",
+    icon: "fa-diagram-project",
+    group: "Page",
+    anchor: "#projects",
     title: "Projects",
     hint: "Every project needs a live link, a GitHub link, or the Private box ticked.",
     fields: [
@@ -202,14 +223,14 @@ export const SECTIONS = [
         type: "list",
         itemLabel: "title",
         fields: [
-          { key: "badge", label: "Badge (award, optional)", type: "text" },
           { key: "title", label: "Project name", type: "text" },
           { key: "tagline", label: "One-line description", type: "text" },
-          { key: "points", label: "Bullet points (one per line)", type: "lines" },
-          { key: "tech", label: "Technologies (one per line)", type: "lines" },
-          { key: "liveUrl", label: "Live site URL", type: "url" },
+          { key: "badge", label: "Award badge (optional)", type: "text", help: "Example: WICEBD Silver Medal. Leave empty for no badge." },
+          { key: "points", label: "Bullet points", type: "lines", help: "One point per line." },
+          { key: "tech", label: "Technologies", type: "lines", help: "One per line. Shown as Python · FastAPI · …" },
+          { key: "liveUrl", label: "Live site URL", type: "url", help: "Leave empty if there is no live site." },
           { key: "gitUrl", label: "GitHub URL", type: "url" },
-          { key: "private", label: "Private (no public link)", type: "checkbox" },
+          { key: "private", label: "Private project (no public link)", type: "checkbox", help: "Tick this when there is no live or GitHub link to show." },
         ],
       },
       { key: "moreUrl", label: "“More projects” link", type: "url" },
@@ -217,6 +238,9 @@ export const SECTIONS = [
   },
   {
     key: "skills",
+    icon: "fa-code",
+    group: "Page",
+    anchor: "#skills",
     title: "Skills",
     hint: "Grouped technical skills.",
     fields: [
@@ -235,6 +259,9 @@ export const SECTIONS = [
   },
   {
     key: "honors",
+    icon: "fa-trophy",
+    group: "Page",
+    anchor: "#honors",
     title: "Honors",
     hint: "Awards, courses and certificate images. New certificates appear first.",
     fields: [
@@ -277,6 +304,7 @@ export const SECTIONS = [
         type: "list",
         itemLabel: "alt",
         newestFirst: true,
+        display: "grid",
         fields: [
           { key: "image", label: "Image", type: "image" },
           { key: "alt", label: "Description", type: "text" },
@@ -286,6 +314,9 @@ export const SECTIONS = [
   },
   {
     key: "leadership",
+    icon: "fa-people-group",
+    group: "Page",
+    anchor: "#leadership",
     title: "Leadership",
     hint: "Leadership and community roles.",
     fields: [
@@ -305,6 +336,9 @@ export const SECTIONS = [
   },
   {
     key: "gallery",
+    icon: "fa-images",
+    group: "Media",
+    anchor: "#gallery",
     title: "Gallery",
     hint: "Events & recognition photos. The newest photo you add shows first.",
     fields: [
@@ -315,6 +349,7 @@ export const SECTIONS = [
         type: "list",
         itemLabel: "alt",
         newestFirst: true,
+        display: "grid",
         fields: [
           { key: "image", label: "Image", type: "image" },
           { key: "alt", label: "Description", type: "text" },
@@ -324,6 +359,9 @@ export const SECTIONS = [
   },
   {
     key: "contact",
+    icon: "fa-envelope",
+    group: "Page",
+    anchor: "#contact",
     title: "Contact",
     hint: "Contact details and references.",
     fields: [
